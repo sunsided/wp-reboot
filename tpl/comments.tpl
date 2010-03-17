@@ -5,21 +5,14 @@
     {if $post.has_comments}
     	<h3 id="comments">{include 'comments_pageheading.tpl'}</h3>
 
-        <!-- TODO: Entfernen, falls nötig -->
-    	<div class="navigation">
-    		<div class="alignleft"><?php previous_comments_link() ?></div>
-    		<div class="alignright"><?php next_comments_link() ?></div>
-    	</div>
+        {include 'comments_navigation.tpl'}
 
     	<ol class="commentlist">
     	{$post.comment_list}
     	</ol>
 
-        <!-- TODO: Entfernen, falls nötig -->
-    	<div class="navigation">
-    		<div class="alignleft"><?php previous_comments_link() ?></div>
-    		<div class="alignright"><?php next_comments_link() ?></div>
-    	</div>
+        {include 'comments_navigation.tpl'}
+
      {else}
          {if $post.comments_open}
              <!-- comments are open, but there are no comments. -->
@@ -28,11 +21,6 @@
             <p class="nocomments">{translate 'Comments are closed.'}</p>
          {/if}
     {/if}
-
-
-
-
-
 
 
     {if $post.comments_open}
@@ -46,10 +34,8 @@
         </div>
 
         {if $comment_registration_needed && !$user_logged_in}
-        <?php /*if ( get_option('comment_registration') && !is_user_logged_in() ) :*/ ?>
             <p class="comment-login-needed">{$comment_login_message}</p>
         {else}
-        <?php /*else :*/ ?>
 
             <form action="{option 'siteurl'}/wp-comments-post.php" method="post" id="commentform">
 
@@ -59,14 +45,14 @@
 
             <?php else : ?>
 
-                <p><input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" size="22" tabindex="1" <?php if ($req) echo "aria-required='true'"; ?> />
-                <label for="author"><small>Name <?php if ($req) echo "(required)"; ?></small></label></p>
+                <p><input type="text" name="author" id="author" value="{esc_attr $comment_author}" size="22" tabindex="1" {if $req}aria-required="true"{/if} />
+                <label for="author"><small>{translate 'Name'} {if $req}{translate '(ben&#246;tigt)'}{/if}</small></label></p>
 
-                <p><input type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" size="22" tabindex="2" <?php if ($req) echo "aria-required='true'"; ?> />
-                <label for="email"><small>Mail (will not be published) <?php if ($req) echo "(required)"; ?></small></label></p>
+                <p><input type="text" name="email" id="email" value="{esc_attr $comment_author_email}" size="22" tabindex="2" {if $req}aria-required="true"{/if} />
+                <label for="email"><small>{translate 'Mail (wird nicht ver&#246;ffentlicht)'} {if $req}{translate '(ben&#246;tigt)'}{/if}</small></label></p>
 
-                <p><input type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url); ?>" size="22" tabindex="3" />
-                <label for="url"><small>Website</small></label></p>
+                <p><input type="text" name="url" id="url" value="{esc_attr $comment_author_url}" size="22" tabindex="3" />
+                <label for="url"><small>{translate 'Website'}</small></label></p>
 
             <?php endif; ?>
 
@@ -74,15 +60,14 @@
 
             <p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea></p>
 
-            <p><input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
-            <?php comment_id_fields(); ?>
+            <p><input name="submit" type="submit" id="submit" tabindex="5" value="{translate 'Kommentar absenden'}" />
+            {comment_id_fields}
             </p>
-            <?php do_action('comment_form', $post->ID); ?>
+            {$comment_form_action}
 
             </form>
 
         {/if}
-        <?php/* endif; // If registration required and not logged in */?>
 
         </div>
 
