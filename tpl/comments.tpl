@@ -1,3 +1,5 @@
+<div class="comments">
+
 {if $post.password_required}
     <p class="nocomments">{translate 'This post is password protected. Enter the password to view comments.'}</p>
 {else}
@@ -39,26 +41,7 @@
 
             <form action="{option 'siteurl'}/wp-comments-post.php" method="post" id="commentform">
 
-            <?php if ( is_user_logged_in() ) : ?>
-
-                <p>{$comment_logged_in_message}</p>
-
-            <?php else : ?>
-
-                <p><input type="text" name="author" id="author" value="{esc_attr $comment_author}" size="22" tabindex="1" {if $req}aria-required="true"{/if} />
-                <label for="author"><small>{translate 'Name'} {if $req}{translate '(ben&#246;tigt)'}{/if}</small></label></p>
-
-                <p><input type="text" name="email" id="email" value="{esc_attr $comment_author_email}" size="22" tabindex="2" {if $req}aria-required="true"{/if} />
-                <label for="email"><small>{translate 'Mail (wird nicht ver&#246;ffentlicht)'} {if $req}{translate '(ben&#246;tigt)'}{/if}</small></label></p>
-
-                <p><input type="text" name="url" id="url" value="{esc_attr $comment_author_url}" size="22" tabindex="3" />
-                <label for="url"><small>{translate 'Website'}</small></label></p>
-
-            <?php endif; ?>
-
-            <!--<p><small><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></small></p>-->
-
-            <p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea></p>
+            {include 'comments_form_fields.tpl'}
 
             <p><input name="submit" type="submit" id="submit" tabindex="5" value="{translate 'Kommentar absenden'}" />
             {comment_id_fields}
@@ -74,3 +57,5 @@
     {/if}
 
 {/if}
+
+</div>

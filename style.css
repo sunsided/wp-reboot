@@ -453,6 +453,29 @@ blockquote {
   .pagination .wp-paginate li a.prev {
   }
 
+  form#commentform input[type="text"],
+  form#commentform textarea {
+      border: 2px solid #ccc;
+      background-color: #fdfdfd;
+      padding: 3px;
+      color: #999;
+      font-size: 14px;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  form#commentform input[type="text"]:hover,
+  form#commentform textarea:hover {
+      border: 2px solid #999;
+      background-color: #fefefe;
+  }
+
+  form#commentform input[type="text"]:focus,
+  form#commentform textarea:focus {
+      border: 2px solid #5f87ae;
+      background-color: #fefefe;
+      color: #555;
+  }
+
 
   #footer .credit {
     height: 50px;
