@@ -381,6 +381,11 @@ blockquote {
             background: #b69ec8;
           }
 
+        li.post address.author {
+            display: inline;
+        }
+
+
   #sidebar {
   /*
     position: absolute;
@@ -478,4 +483,9 @@ blockquote {
     display: none;
     visibility: hidden;
   }
+
+.invisible {
+    display: hidden;
+    visibility: none;
+}
 

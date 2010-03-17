@@ -20,7 +20,7 @@
     <div id="footer">
 
       Zurück nach <a href="#top">oben</a>.
-      {include(file='searchform.tpl')}
+      {include 'searchform.tpl'}
 
     </div>
   </div>

@@ -109,9 +109,8 @@
 
   	}
 
-    $params = array();
-    $params["posts"] = $posts_tpl;
-    $dwoo->output(TPL_PATH.'/theloop.tpl', $params);
+    $dwooParams["posts"] = $posts_tpl;
+    $dwoo->output(TPL_PATH.'/theloop.tpl', $dwooParams);
 
 	}
   else

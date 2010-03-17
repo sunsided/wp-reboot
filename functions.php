@@ -14,6 +14,7 @@ include(TEMPLATEPATH.'/dwoo/dwooAutoload.php');
 $dwoo = new Dwoo();
 $dwooLoader = $dwoo->getLoader();
 $dwooLoader->addDirectory(TEMPLATEPATH.'/tpl_plugs');
+$dwooParams = array();
 
 define('TPL_PATH', TEMPLATEPATH.'/tpl');
 
