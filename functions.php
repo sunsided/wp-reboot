@@ -27,6 +27,14 @@ function PerformAwesomeMimeFoo()
   header("Content-type: $mimeType; charset=UTF-8") ;
 }
 
+// Liefert den Link zur Kommentarseite
+function reboot_get_the_title()
+{
+  ob_start();
+  the_title();
+  return ob_get_clean();
+}
+
 // Kommentare
 
 // Liefert den Link zur Kommentarseite
@@ -38,9 +46,15 @@ function reboot_comments_link()
 
   ob_start();
   comments_popup_link(__("0 Kommentare", "reboot"), __("1 Kommentar", "reboot"), __("% Kommentare", "reboot"), $class, __("deaktiviert", "reboot"));
-  $link = ob_get_contents();
-  ob_end_clean();
-  return $link;
+  return ob_get_clean();
+}
+
+// Liefert die Anzahl der Kommentare als Text
+function reboot_comments_count_text()
+{
+  ob_start();
+  comments_number(__("0 Kommentare", "reboot"), __("1 Kommentar", "reboot"), __("% Kommentare", "reboot"));
+  return ob_get_clean();
 }
 
 function reboot_get_the_content($more_link_text = null, $stripteaser = 0)
@@ -49,9 +63,7 @@ function reboot_get_the_content($more_link_text = null, $stripteaser = 0)
 
   ob_start();
   the_content($more_link_text, $stripteaser);
-  $link = ob_get_contents();
-  ob_end_clean();
-  return $link;
+  return ob_get_clean();
 }
 
 // Kategorie überprüfen

@@ -18,10 +18,12 @@
 
       $the_post["permalink"] = get_permalink();
       $the_post["title_attr"] = sprintf(__('Link zu &quot;%s&quot;', 'reboot'), the_title_attribute('echo=0'));
-      $the_post["title"] = get_the_title(); //the_title_attribute('echo=0');
+      $the_post["title"] = reboot_get_the_title();
       $the_post["content"] = reboot_get_the_content(__('Weiterlesen &raquo;', 'reboot'));
       $the_post["pub_time"] = get_the_time(__('F jS, Y', 'reboot'));
       $the_post["pub_author"] = sprintf(__('von %s', 'reboot'), get_the_author());
+
+      $the_post["password_required"] = post_password_required();
 
       // Publish-Zeitpunkt setzen
       $the_post["timestamp_pub"] = get_the_time('Y-m-j\TH:i:sP');
@@ -40,11 +42,6 @@
       $the_post["author"]["lastname"] = $authordata->user_lastname;
       $the_post["author"]["url"] = $authordata->user_url;
       $the_post["author"]["email"] = $authordata->user_email;
-
-      // Kommentarfunktionalität
-      $the_post["commentcount"] = $post->comment_count;
-      $the_post["commentslink"] = reboot_comments_link();
-
 
       // Tags und Kategorien vergleichen
       if(!function_exists("reboot_sort_tc"))
@@ -104,6 +101,12 @@
         }
         usort($the_post["category_list"], reboot_sort_tc);
       }
+
+      // Kommentarfunktionalität
+      $the_post["comment_count"] = $post->comment_count;
+      $the_post["comments_link"] = reboot_comments_link();
+      $the_post["comments_open"] = comments_open();
+      $the_post["comments_count_text"] = reboot_comments_count_text();
 
       $posts_tpl[] = $the_post;
 

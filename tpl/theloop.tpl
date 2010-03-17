@@ -1,7 +1,8 @@
   <ul class="posts hfeed">
-  		{foreach $posts post}
+  {foreach $posts post}
 
-      <li class="post entry hentry" id="post-{$post.id}">
+      <!--<li class="post entry hentry" id="post-{$post.id}">-->
+      <li id="post-{$post.id}" {post_class 'entry'}>
 
         <h2 class="title">
           <a class="title entry-title" href="{$post.permalink}" rel="bookmark" title="{esc_attr $post.title_attr}">
@@ -9,11 +10,11 @@
           </a>
         </h2>
 
-        <div class="commentlink">{$post.commentslink}</div>
+        <div class="commentlink">{$post.comments_link}</div>
 
         <div class="entry-content">
-					{$post.content}
-				</div>
+		    {$post.content}
+		</div>
 
         <div class="info post-info" role="contentinfo">
           {$post.pub_time} {include 'page_pubauthor_short.tpl'}
@@ -25,9 +26,9 @@
           {if $post.has_categories}{include 'page_categories.tpl'}{/if}
         </div>
 
-        {if $is_single}<h3>Woo</h3>.{/if}
+        {comments_template}
 
       </li>
 
-		{/foreach}
+  {/foreach}
   </ul>

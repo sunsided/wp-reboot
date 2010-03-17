@@ -1,0 +1,1 @@
+{translate("%comments% auf &#8222;%title%&#8220;")|replace:array('%comments%', '%title%'):array($post.comments_count_text, $post.title)}
