@@ -463,12 +463,27 @@ blockquote {
 
   #page .post .comments h3 {
       margin-top: 20px;
-      text-shadow: none;
+      /* text-shadow: none; */
       border-bottom: 2px solid #ccc;
   }
 
-  #respond #commentform input[type="text"],
-  #respond #commentform textarea {
+  #respond #commentform label {
+        color: #bbb; /* #036d91; */
+        margin: 0 0 14px 0;
+        font-weight: bold;
+        line-height: 20px;
+  }
+
+  #respond #commentform label span.not-published-note,
+  #respond #commentform label span.required-note
+  {
+      font-weight: normal;
+      font-size: 12px;
+  }
+
+
+  #respond #commentform p input[type="text"],
+  #respond #commentform p textarea {
       border: 2px solid #ccc;
       background-color: #fdfdfd;
       padding: 3px;
@@ -477,17 +492,27 @@ blockquote {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
-  #respond #commentform input[type="text"]:hover,
-  #respond #commentform textarea:hover {
-      border: 2px solid #999;
+  #respond #commentform p:hover input[type="text"],
+  #respond #commentform p:hover textarea {
+      border-color: #999;
       background-color: #fefefe;
   }
+
+  #respond #commentform p:hover label {
+      color: #aaa;
+  }
+
 
   #respond #commentform input[type="text"]:focus,
   #respond #commentform textarea:focus {
       border: 2px solid #5f87ae;
       background-color: #fefefe;
       color: #555;
+  }
+
+
+  #respond #commentform textarea {
+    width: 100%;
   }
 
 

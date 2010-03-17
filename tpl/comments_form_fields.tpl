@@ -8,7 +8,7 @@
                 <label for="author">{translate 'Name'} {if $req}<span class="required-note">{translate '(ben&#246;tigt)'}</span>{/if}</label></p>
 
                 <p><input class="email{if $req} required{/if}" type="text" name="email" id="email" value="{esc_attr $comment_author_email}" size="22" tabindex="2" {if $req}aria-required="true"{/if} />
-                <label for="email">{translate 'Mail (wird nicht ver&#246;ffentlicht)'} {if $req}<span class="required-note">{translate '(ben&#246;tigt)'}</span>{/if}</label></p>
+                <label for="email">{translate 'Mail <span class="not-published-note">(wird nicht ver&#246;ffentlicht)</span>'} {if $req}<span class="required-note">{translate '(ben&#246;tigt)'}</span>{/if}</label></p>
 
                 <p><input type="text" name="url" id="url" value="{esc_attr $comment_author_url}" size="22" tabindex="3" />
                 <label for="url">{translate 'Website'}</label></p>
