@@ -23,7 +23,6 @@
      {else}
          {if $post.comments_open}
              <!-- comments are open, but there are no comments. -->
-            <p class="empty-comment-list">{translate 'No comments available.'}</p>
          {else}
             <!-- comments are closed. -->
             <p class="nocomments">{translate 'Comments are closed.'}</p>
@@ -40,21 +39,23 @@
 
         <div id="respond">
 
-        <h3><?php comment_form_title( 'Leave a Reply', 'Leave a Reply to %s' ); ?></h3>
+        <h3>{comments_form_title}</h3>
 
         <div class="cancel-comment-reply">
-        	<small><?php cancel_comment_reply_link(); ?></small>
+        	<small>{cancel_comment_reply_link}</small>
         </div>
 
-        <?php if ( get_option('comment_registration') && !is_user_logged_in() ) : ?>
-            <p>You must be <a href="<?php echo wp_login_url( get_permalink() ); ?>">logged in</a> to post a comment.</p>
-        <?php else : ?>
+        {if $comment_registration_needed && !$user_logged_in}
+        <?php /*if ( get_option('comment_registration') && !is_user_logged_in() ) :*/ ?>
+            <p class="comment-login-needed">{$comment_login_message}</p>
+        {else}
+        <?php /*else :*/ ?>
 
-            <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+            <form action="{option 'siteurl'}/wp-comments-post.php" method="post" id="commentform">
 
             <?php if ( is_user_logged_in() ) : ?>
 
-                <p>Logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
+                <p>{$comment_logged_in_message}</p>
 
             <?php else : ?>
 
@@ -79,7 +80,9 @@
             <?php do_action('comment_form', $post->ID); ?>
 
             </form>
-        <?php endif; // If registration required and not logged in ?>
+
+        {/if}
+        <?php/* endif; // If registration required and not logged in */?>
 
         </div>
 

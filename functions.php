@@ -16,6 +16,10 @@ $dwooLoader = $dwoo->getLoader();
 $dwooLoader->addDirectory(TEMPLATEPATH.'/tpl_plugs');
 $dwooParams = array();
 
+// Standardparameter setzen
+$dwooParams['user_logged_in'] = is_user_logged_in();
+
+// Dwoo-Templatepfad registrieren
 define('TPL_PATH', TEMPLATEPATH.'/tpl');
 
 // Allgemeine Funktionen
@@ -54,6 +58,14 @@ function reboot_comments_count_text()
 {
   ob_start();
   comments_number(__("0 Kommentare", "reboot"), __("1 Kommentar", "reboot"), __("% Kommentare", "reboot"));
+  return ob_get_clean();
+}
+
+// Liefert den Reply-Titel
+function reboot_comments_form_title()
+{
+  ob_start();
+  comment_form_title( __('Hinterlasse einen Kommentar', 'reboot'), __('Antworte auf %s', 'reboot') );
   return ob_get_clean();
 }
 
