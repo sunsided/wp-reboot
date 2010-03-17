@@ -186,6 +186,14 @@ blockquote {
         line-height: 26px;
       }
 
+      #page .post h3 {
+        color: #666; /* #036d91; */
+        text-shadow: 1px 1px #EEEEFF;
+        margin: 0 0 14px 0;
+        font-weight: bold;
+        line-height: 20px;
+      }
+
       #page li.post a.title {
         /*display: inline;*/
       }
@@ -453,8 +461,14 @@ blockquote {
   .pagination .wp-paginate li a.prev {
   }
 
-  form#commentform input[type="text"],
-  form#commentform textarea {
+  #page .post .comments h3 {
+      margin-top: 20px;
+      text-shadow: none;
+      border-bottom: 2px solid #ccc;
+  }
+
+  #respond #commentform input[type="text"],
+  #respond #commentform textarea {
       border: 2px solid #ccc;
       background-color: #fdfdfd;
       padding: 3px;
@@ -463,14 +477,14 @@ blockquote {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
-  form#commentform input[type="text"]:hover,
-  form#commentform textarea:hover {
+  #respond #commentform input[type="text"]:hover,
+  #respond #commentform textarea:hover {
       border: 2px solid #999;
       background-color: #fefefe;
   }
 
-  form#commentform input[type="text"]:focus,
-  form#commentform textarea:focus {
+  #respond #commentform input[type="text"]:focus,
+  #respond #commentform textarea:focus {
       border: 2px solid #5f87ae;
       background-color: #fefefe;
       color: #555;
