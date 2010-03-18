@@ -474,33 +474,38 @@ blockquote {
   #respond #commentform div.new-comment-author-info,
   #respond #commentform div.button-row
   {
-      width: 225px;
+      width: 180px;
       overflow: visible;
-      white-space: nowrap;
       height: 50px;
   }
 
-  #respond #commentform div.button-row {
-    vertical-align: bottom;
+  #respond #commentform div.comment-row {
+    width: 300px;
+    height: 210px;
+    float: left;
   }
 
+  #respond #commentform div.button-row {
+    vertical-align: top;
+    clear: both;
+    width: auto;
+  }
 
   #respond #commentform div.button-row input[type="submit"] {
-    width: 100%;
-    margin-top: 20px;
   }
 
-
-  #respond #commentform div.author-row,
-  #respond #commentform div.url-row {
-      float: left;
-      clear: left;
+  #respond #commentform div.new-comment-author-info {
+    float: right;
+    clear: right;
   }
 
-  #respond #commentform div.email-row,
-  #respond #commentform div.button-row {
-      float: right;
-      clear: right;
+  #respond #commentform div.author-row {
+      margin-top: 17px;
+      margin-bottom: 10px;
+  }
+
+  #respond #commentform div.email-row {
+      /* height: 70px; */
   }
 
   #respond #commentform div label {
@@ -509,6 +514,11 @@ blockquote {
         display: block;
         margin-left: 2px;
   }
+
+  #respond #commentform div label span.not-published-note {
+    /* display: none; */
+  }
+
 
   #respond #commentform div label span.not-published-note,
   #respond #commentform div label span.required-note
@@ -530,12 +540,21 @@ blockquote {
       font-size: 14px;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       width: 100%;
+
+      border-radius: 3px;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+
+    box-shadow: rgba(128, 128, 128, 0.1) 2px 2px 20px;
+      -moz-box-shadow: rgba(128, 128, 128, 0.1) 2px 2px 20px;
+      -webkit-box-shadow: rgba(128, 128, 128, 0.1) 2px 2px 20px;
   }
 
   #respond #commentform div:hover input[type="text"],
   #respond #commentform div:hover textarea {
       border-color: #999;
       background-color: #fefefe;
+
   }
 
   #respond #commentform div:hover label {
@@ -548,6 +567,14 @@ blockquote {
       border: 2px solid #5f87ae;
       background-color: #fefefe;
       color: #555;
+
+    box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
+      -moz-box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
+      -webkit-box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
+  }
+
+  #respond #commentform div label.focused {
+    color: #5f87ae;
   }
 
 

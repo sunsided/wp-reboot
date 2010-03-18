@@ -43,7 +43,7 @@
 
             {include 'comments_form_fields.tpl'}
 
-            <div class="button-row"><input name="submit" type="submit" id="submit" tabindex="5" value="{translate 'Kommentar absenden'}" />
+            <div class="button-row"><input tabindex="10" name="submit" type="submit" id="submit" tabindex="5" value="{translate 'Kommentar absenden'}" />
             {comment_id_fields}
             </div>
             {$comment_form_action}
