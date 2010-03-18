@@ -467,51 +467,91 @@ blockquote {
       border-bottom: 2px solid #ccc;
   }
 
-  #respond #commentform label {
-        color: #bbb; /* #036d91; */
-        margin: 0 0 14px 0;
-        font-weight: bold;
-        line-height: 20px;
+  #respond #commentform div {
+      margin: 0 0 14px 0;
   }
 
-  #respond #commentform label span.not-published-note,
-  #respond #commentform label span.required-note
+  #respond #commentform div.new-comment-author-info,
+  #respond #commentform div.button-row
   {
-      font-weight: normal;
+      width: 225px;
+      overflow: visible;
+      white-space: nowrap;
+      height: 50px;
+  }
+
+  #respond #commentform div.button-row {
+    vertical-align: bottom;
+  }
+
+
+  #respond #commentform div.button-row input[type="submit"] {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+
+  #respond #commentform div.author-row,
+  #respond #commentform div.url-row {
+      float: left;
+      clear: left;
+  }
+
+  #respond #commentform div.email-row,
+  #respond #commentform div.button-row {
+      float: right;
+      clear: right;
+  }
+
+  #respond #commentform div label {
+        color: #bbb; /* #036d91; */
+        font-weight: bold;
+        display: block;
+        margin-left: 2px;
+  }
+
+  #respond #commentform div label span.not-published-note,
+  #respond #commentform div label span.required-note
+  {
       font-size: 12px;
   }
 
+    #respond #commentform div label span.required-note {
+      font-weight: normal;
+    }
 
-  #respond #commentform p input[type="text"],
-  #respond #commentform p textarea {
+
+  #respond #commentform div input[type="text"],
+  #respond #commentform div textarea {
       border: 2px solid #ccc;
       background-color: #fdfdfd;
       padding: 3px;
       color: #999;
       font-size: 14px;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      width: 100%;
   }
 
-  #respond #commentform p:hover input[type="text"],
-  #respond #commentform p:hover textarea {
+  #respond #commentform div:hover input[type="text"],
+  #respond #commentform div:hover textarea {
       border-color: #999;
       background-color: #fefefe;
   }
 
-  #respond #commentform p:hover label {
+  #respond #commentform div:hover label {
       color: #aaa;
   }
 
 
-  #respond #commentform input[type="text"]:focus,
-  #respond #commentform textarea:focus {
+  #respond #commentform div input[type="text"]:focus,
+  #respond #commentform div textarea:focus {
       border: 2px solid #5f87ae;
       background-color: #fefefe;
       color: #555;
   }
 
 
-  #respond #commentform textarea {
+  #respond #commentform div textarea {
     width: 100%;
   }
 
