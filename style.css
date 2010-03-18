@@ -541,11 +541,9 @@ blockquote {
       margin: 1em 0;
       position: relative;
       top: -5px;
-      /*
       word-wrap: break-word;
        -moz-word-wrap: break-word;
        -webkit-word-wrap: break-word;
-       */
      overflow: auto;
   }
 
