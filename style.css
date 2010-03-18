@@ -474,11 +474,11 @@ blockquote {
 
   ol.commentlist li + li,
   ol.commentlist ul.children li {
-      border-top: 1px dotted #aaa
+      border-top: 1px dotted #aaa;
   }
 
   ol.commentlist ul.children li {
-      border-top: 1px dotted #bbb
+      border-top: 1px dotted #bbb;
   }
 
   ol.commentlist li {
@@ -534,7 +534,7 @@ blockquote {
   }
 
   ol.commentlist li div.comment-meta a.comment-edit-link {
-    color: #238db1; 
+    color: #238db1;
   }
 
 
