@@ -70,6 +70,20 @@ function reboot_comments_form_title()
   return ob_get_clean();
 }
 
+// threaded comments! Woo!
+if(!function_exists('theme_queue_js'))
+{
+    function theme_queue_js(){
+      if (!is_admin()){
+        if (!is_page() AND is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+          wp_enqueue_script( 'comment-reply' );
+        }
+      }
+    }
+    add_action('get_header', 'theme_queue_js');
+}
+
+// Filt0rt den content und gettet ihn
 function reboot_get_the_content($more_link_text = null, $stripteaser = 0)
 {
   global $post;

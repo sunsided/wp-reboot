@@ -1,19 +1,11 @@
     </div>
 
-    <div class="separate lighter"></div>
-
+    {if $pagination}
+      <div class="separate lighter"></div>
       <div class="pagination" role="navigation">
-
-            <!--
-  			<div class="prevlink">{next_posts_link '&laquo; &Auml;ltere Beitr&auml;ge'}</div>
-  			<div class="nextlink">{previous_posts_link 'Neuere Eintr&auml;ge &raquo;'}</div>
-            -->
-
-            <?php if(function_exists('wp_paginate')) {
-                wp_paginate();
-            } ?>
-
+            {$pagination}
       </div>
+    {/if}
 
     <div class="separate"></div>
 

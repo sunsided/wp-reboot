@@ -403,63 +403,28 @@ blockquote {
     background-color: red;
     */
   }
-
-  .pagination {
+  div.pagination-fu {
     margin-bottom: 10px;
-    height: 20px;
   }
 
-  .pagination .prevlink {
-    float: left;
-    clear: left;
+  div.pagination-fu-comments {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
-  .pagination .nextlink {
-    float: right;
-    clear: right;
-  }
-
-  .pagination .wp-paginate {
-      text-align: center;
-      clear: both;
-      display: block;
-      margin-bottom: 30px;
-  }
-
-  .pagination .wp-paginate li span,
-  .pagination .wp-paginate li a {
-    border-radius: 4px;
-      -moz-border-radius: 4px;
-      -webkit-border-radius: 4px;
-
-    box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 20px;
+  div.pagination-fu li span,
+  div.pagination-fu li a
+  {
+   box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 20px;
       -moz-box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 20px;
       -webkit-box-shadow: rgba(0, 0, 0, 0.1) 2px 2px 20px;
   }
 
-  .pagination .wp-paginate li span.current {
-    cursor: default;
+
+  #page .post div.comments {
+      margin-top: 50px;
   }
 
-
-  .pagination .wp-paginate li span:hover,
-  .pagination .wp-paginate li a:hover {
-    border-radius: 4px;
-      -moz-border-radius: 4px;
-      -webkit-border-radius: 4px;
-
-    /*
-    box-shadow: rgba(127, 173, 207, 0.5) 0px 0px 5px;
-      -moz-box-shadow: rgba(127, 173, 207, 0.1) 0px 0px 15px;
-      -webkit-box-shadow: rgba(127, 173, 207, 0.5) 0px 0px 5px;
-    */
-  }
-
-  .pagination .wp-paginate li a.next {
-  }
-
-  .pagination .wp-paginate li a.prev {
-  }
 
   #page .post .comments h3 {
       margin-top: 20px;
@@ -571,11 +536,17 @@ blockquote {
       font-weight: bold;
   }
 
-  ol.commentlist li p {
+  ol.commentlist li div.comment-body p {
       line-height: 18px;
       margin: 1em 0;
       position: relative;
       top: -5px;
+      /*
+      word-wrap: break-word;
+       -moz-word-wrap: break-word;
+       -webkit-word-wrap: break-word;
+       */
+     overflow: auto;
   }
 
   ol.commentlist li div.reply {
@@ -591,20 +562,26 @@ blockquote {
   #respond #commentform div.new-comment-author-info,
   #respond #commentform div.button-row
   {
-      width: 180px;
+      max-width: 180px;
       overflow: visible;
       height: 50px;
   }
 
   #respond #commentform div.comment-row {
-    width: 300px;
+    max-width: 300px;
     height: 210px;
     float: left;
   }
 
   #respond.user-logged-in #commentform div.comment-row {
-      width: 490px;
+      max-width: 490px;
       float: none;
+  }
+
+  /* fix für threaded comments */
+  li.comment #respond #commentform div.comment-row {
+      width: 100%;
+      max-width: 100%;
   }
 
   #respond #commentform div.button-row {
@@ -620,6 +597,21 @@ blockquote {
     float: right;
     clear: right;
   }
+
+  /* fix für threaded comments */
+  li.comment #respond #commentform div.new-comment-author-info {
+    float: left;
+    clear: left;
+  }
+
+  /* fix für threaded comments */
+  li.comment #respond #commentform div.email-row {
+    float: right;
+    clear: right;
+    margin-top: 17px;
+    margin-bottom: 10px;
+  }
+
 
   #respond #commentform div.author-row {
       margin-top: 17px;

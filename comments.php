@@ -23,17 +23,26 @@ $the_post['comment_list'] = $comment_list;
 $localDwooParams['post'] = $the_post;
 
 // build navigation links
-ob_start();
-previous_comments_link(__('« Older Comments', 'reboot'));
-$older_comments_link = ob_get_clean();
-ob_start();
-next_comments_link(__('Newer Comments »', 'reboot'));
-$newer_comments_link = ob_get_clean();
+if(function_exists('get_PaginationFuComments'))
+{
+    $pagination = get_PaginationFuComments();
+    $localDwooParams['has_comments_pagination'] = !empty($pagination);
+    $localDwooParams['comments_pagination'] = $pagination;
+}
+else
+{
+    ob_start();
+    previous_comments_link(__('« Older Comments', 'reboot'));
+    $older_comments_link = ob_get_clean();
+    ob_start();
+    next_comments_link(__('Newer Comments »', 'reboot'));
+    $newer_comments_link = ob_get_clean();
 
-$localDwooParams['has_older_comments_link'] = !empty($older_comments_link);
-$localDwooParams['has_newer_comments_link'] = !empty($newer_comments_link);
-$localDwooParams['older_comments_link'] = $older_comments_link;
-$localDwooParams['newer_comments_link'] = $newer_comments_link;
+    $localDwooParams['has_older_comments_link'] = !empty($older_comments_link);
+    $localDwooParams['has_newer_comments_link'] = !empty($newer_comments_link);
+    $localDwooParams['older_comments_link'] = $older_comments_link;
+    $localDwooParams['newer_comments_link'] = $newer_comments_link;
+}
 
 // comment form action hook
 ob_start();

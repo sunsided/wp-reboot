@@ -16,8 +16,4 @@
 
     <div class="separate"></div>
 
-    <?php if(function_exists('PaginationFu')) {
-        PaginationFu();
-    } ?>
-
   	<div id="content" class="narrowcolumn" role="main">
