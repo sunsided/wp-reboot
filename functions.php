@@ -262,7 +262,7 @@ function reboot_inject_fancybox()
 <?php
 }
 
-if(ENABLE_FANCYBOX) add_action( 'wp_head', 'reboot_inject_fancybox', 1002 );
+if(ENABLE_FANCYBOX) add_action( 'wp_footer', 'reboot_inject_fancybox', 1002 );
 
 function reboot_inject_facybox_foo()
 {

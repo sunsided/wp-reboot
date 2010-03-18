@@ -27,7 +27,7 @@
 
     {if $post.comments_open}
 
-        <div id="respond">
+        <div id="respond" class="{if $user_logged_in}user-logged-in{else}anon-user{/if}">
 
         <h3>{comments_form_title}</h3>
 
