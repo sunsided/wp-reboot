@@ -2,8 +2,9 @@ body {
   height: 100%;
   color: #454545;
   font-size: 14px;
-  line-height: 21px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 24px;
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Calibri,Verdana,sans-serif;
+  font-weight: 300;
   background: url(images/bg.jpg);
   -webkit-text-stroke: 1px transparent;
 }
@@ -17,6 +18,12 @@ a {
 p {
   margin: 0 0 14px 0;
 }
+
+.post p {
+   font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Calibri,Verdana,sans-serif;
+   font-size: 16px;
+}
+
 
 blockquote {
   border-left: 4px solid #EFEFEF;
@@ -271,11 +278,17 @@ blockquote {
     }
 
     li.post div.syntaxhighlighter {
+      font-size: 13px !important;
       background: url("images/code.png") no-repeat scroll 0 0 #CCCCCC !important;
 
       border-radius: 10px 0px 0px 10px;
         -moz-border-radius: 10px 0px 0px 10px;
         -webkit-border-radius: 10px 0px 0px 10px;
+    }
+
+    li.post div.syntaxhighlighter .line .content {
+        padding-top: 1px !important;
+        padding-bottom: 2px !important;
     }
 
     li.post div.syntaxhighlighter .bar .toolbar .about {
@@ -286,7 +299,6 @@ blockquote {
         margin: 0 !important;
         padding: 0 !important;
     }
-
 
     /*
     li.post pre {
@@ -406,6 +418,7 @@ blockquote {
   }
   div.pagination-fu {
     margin-bottom: 10px;
+    font-size: 14px;
   }
 
   div.pagination-fu-comments {
@@ -774,8 +787,8 @@ blockquote {
 
 .post blockquote {
     position: relative;
-    font-size: 1.125em;
-    line-height: 1.25em;
+    font-size: 16px;
+    line-height: 20px;
     font-family:Georgia,'Times New Roman',Times,Serif;
     font-style: italic;
     color: #555;
@@ -783,59 +796,108 @@ blockquote {
     display: block;
     padding: 0 60px;
     width: 350px;
-    min-height: 35px;
+    max-width: 350px;
 
     border: none;
-    padding-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 3px;
 
-/*    quotes: '{' '}';   */
+/*    quotes: '\2039' '\203A';  */
 }
 
+.post blockquote blockquote {
+}
 
 /*
-.post blockquote:first-line,
-.post blockquote p:first-line {
-    position: relative;
-    left: 10px;
-}
-
-.post blockquote::first-letter,
-.post blockquote p::first-letter {
-    font-size: 1.5em;
-    vertical-align: bottom;
-}
-*/
-
 blockquote:before, blockquote:after {
     font-style: italic;
     display: block;
-    font-size: 700%;
+    font-size: 400%;
     width: 50px;
-    color: #eee;
+    color: #f3f3f3;
 }
 
 blockquote:before {
     content: open-quote;
-    margin-left: -0.7em;
+    margin-left: -0.6em;
     height: 0;
     overflow: visible;
     margin-top: -10px;
     position: relative;
-    top: -10px;
+    top: 0px;
 }
 
 blockquote:after {
     content: close-quote;
     height: 30px;
-    /* margin-top: -70px;*/
-    margin-top: -45px;
+    margin-top: -35px;
     margin-left: 360px;
 }
+*/
+
+.post blockquote blockquote {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 20px;
+    color: #555;
+    font-size: 15px;
+}
+
+blockquote p:first-child:before {
+    content: open-quote;
+    color: red;
+}
+
+blockquote p:last-child:after {
+    content: close-quote;
+    color: red;
+}
+
+                  /*
+blockquote blockquote:before,
+blockquote blockquote:after {
+    color: #f3f3f3;
+
+    font-size: 38px;
+    margin: 0;
+    padding: 0;
+}
+
+blockquote blockquote:before {
+    content: open-quote;
+    left: -20px;
+    height: 0;
+    top: -3px;
+}
+
+blockquote blockquote:after {
+    content: no-close-quote;
+    height: 0;
+}
+*/
+
 
 blockquote, q { quotes: '»' '«' '\2039' '\203A' }
+q { quotes: '\2039' '\203A' '„' '“' }
 
-q {font-style: italic; }
+q {
+    font-style: italic;
+    font-family:Georgia,'Times New Roman',Times,Serif;
+}
 q:before, q:after { color: #555; }
 q:before { content: open-quote; }
 q:after { content: close-quote; }
+
+del {
+    color: #aaa;
+    padding: 0 3px;
+}
+
+span.numbers {
+    color: #444;
+    font-size: 14px;
+    top: -1px;
+    position: relative;
+    font-family:Georgia,'Times New Roman',Times,Serif;
+}
 
