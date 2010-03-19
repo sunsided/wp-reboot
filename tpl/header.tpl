@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" {language_attributes}>
 
 <head profile="http://gmpg.org/xfn/11
-              http://purl.org/uF/2008/03/"
+              http://purl.org/uF/2008/03/
               http://purl.org/uF/hAtom/0.1/">
 
 <meta http-equiv="Content-Type" content="{bloginfo "html_type"}; charset={bloginfo "charset"}" />

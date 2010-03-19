@@ -21,7 +21,7 @@ p {
 
 .post p {
    font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Calibri,Verdana,sans-serif;
-   font-size: 16px;
+   font-size: 15px;
 }
 
 
@@ -596,6 +596,23 @@ blockquote {
       max-width: 100%;
   }
 
+  li.pingback div.reply {
+      display: none;
+      visibility: hidden;
+  }
+
+  li.pingback div.comment-author {
+      margin-left: -45px;
+      padding-left: 45px;
+      background: url("images/pingback.png") no-repeat 0 -2px;
+      display: block !important;
+      height: 20px;
+  }
+
+  li.pingback div.comment-meta a {
+      padding-left: 0 !important;
+  }
+
   #respond #commentform div.button-row {
     vertical-align: top;
     clear: left;
@@ -616,7 +633,7 @@ blockquote {
     vertical-align: bottom;
     padding-top: 20px;
     margin-top: 0px;
-  }  
+  }
 
   #respond #commentform div.subscription-row p {
     display: inline;
@@ -790,6 +807,7 @@ blockquote {
     font-size: 16px;
     line-height: 20px;
     font-family:Georgia,'Times New Roman',Times,Serif;
+
     font-style: italic;
     color: #555;
 
@@ -881,6 +899,7 @@ blockquote, q { quotes: '»' '«' '\2039' '\203A' }
 q { quotes: '\2039' '\203A' '„' '“' }
 
 q {
+    font-size: 14px;
     font-style: italic;
     font-family:Georgia,'Times New Roman',Times,Serif;
 }

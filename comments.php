@@ -16,7 +16,10 @@ $the_post = $localDwooParams["posts"][0];
 $the_post['has_comments'] = have_comments();
 
 // Kommentarliste generieren
-ob_start(); wp_list_comments(); $comment_list = ob_get_clean();
+$args = array(
+    //'reply_text' => __('Antworten', 'reboot')
+    );
+ob_start(); wp_list_comments($args); $comment_list = ob_get_clean();
 $the_post['comment_list'] = $comment_list;
 
 // Post einreihen

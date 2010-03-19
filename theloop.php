@@ -20,7 +20,11 @@
       $the_post["title_attr"] = sprintf(__('Link zu &quot;%s&quot;', 'reboot'), the_title_attribute('echo=0'));
       $the_post["title"] = reboot_get_the_title();
       $the_post["content"] = reboot_get_the_content(__('Weiterlesen &raquo;', 'reboot'));
-      $the_post["pub_time"] = get_the_time(__('F jS, Y', 'reboot'));
+
+      ob_start(); the_time_ago(__('F jS, Y', 'reboot'));
+      $the_post["pub_time"] = ob_get_clean();
+
+      // $the_post["pub_time"] = get_the_time(__('F jS, Y', 'reboot'));
       $the_post["pub_author"] = sprintf(__('von %s', 'reboot'), get_the_author());
 
       $the_post["password_required"] = post_password_required();
