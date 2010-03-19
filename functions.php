@@ -171,16 +171,22 @@ function is_quote_post()
 
 // jQuery fun
 
+/**
+ * Dieses Stück Awesomeness klaut Wordpress das eigene jQuery-Skript unter dem
+ * Arsche hinfort und ersetzt es gegen sein eigenes. Unseres, quasi.
+ */
 function reboot_inject_jquery()
-{
+{   
     $version = "-1.4.2";
     if($_SERVER["SERVER_ADDR"] != "127.0.0.1") $version .= "_min";
-?>
-<script type="text/javascript" language="javascript" src="<?php bloginfo("stylesheet_directory")?>/js/jquery<?php echo $version ?>.js"></script>
-<?php
+    $script = get_bloginfo("stylesheet_directory").'/js/jquery'.$version.'.js';
+    
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', $script);
+    wp_enqueue_script('jquery');    
 }
 
-if(ENABLE_JQUERY) add_action( 'wp_head', 'reboot_inject_jquery', 1000 );
+if(ENABLE_JQUERY) add_action('init', 'reboot_inject_jquery');
 
 function reboot_inject_jquery_image_foo()
 {
