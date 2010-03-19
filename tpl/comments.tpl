@@ -43,6 +43,7 @@
 
             {include 'comments_form_fields.tpl'}
 
+            {if $subscriptionCheckbox}<div class="subscription-row">{$subscriptionCheckbox}</div>{/if}
             <div class="button-row"><input tabindex="10" name="submit" type="submit" id="submit" tabindex="5" value="{translate 'Kommentar absenden'}" />
             {comment_id_fields}
             </div>

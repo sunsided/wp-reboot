@@ -44,6 +44,11 @@ else
     $localDwooParams['newer_comments_link'] = $newer_comments_link;
 }
 
+// subscription foo
+ob_start();
+show_subscription_checkbox();
+$localDwooParams['subscriptionCheckbox'] = ob_get_clean();
+
 // comment form action hook
 ob_start();
 do_action('comment_form', $post->ID);

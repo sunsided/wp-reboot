@@ -177,6 +177,8 @@ function is_quote_post()
  */
 function reboot_inject_jquery()
 {   
+    if(is_admin()) return;
+    
     $version = "-1.4.2";
     if($_SERVER["SERVER_ADDR"] != "127.0.0.1") $version .= "_min";
     $script = get_bloginfo("stylesheet_directory").'/js/jquery'.$version.'.js';

@@ -242,6 +242,7 @@ blockquote {
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
     }
 
+    li.post img.wp-smiley,
     li.post img.noborder,
     li.post img.borderless {
       border: none;
@@ -576,7 +577,7 @@ blockquote {
       float: none;
   }
 
-  /* fix für threaded comments */
+  /* fix fÃ¼r threaded comments */
   li.comment #respond #commentform div.comment-row {
       width: 100%;
       max-width: 100%;
@@ -584,8 +585,33 @@ blockquote {
 
   #respond #commentform div.button-row {
     vertical-align: top;
-    clear: both;
+    clear: left;
     width: auto;
+  }
+  
+  #respond #commentform div.subscription-row  {
+    float: right;
+    height: 50px;
+    max-width: 180px;
+    margin-top: 18px;
+    position: relative;
+    left: 2px;
+  }
+  
+  li.comment #respond #commentform div.subscription-row  {
+    max-width: 180px;
+    vertical-align: bottom;
+    padding-top: 20px;
+    margin-top: 0px;
+  }  
+
+  #respond #commentform div.subscription-row p {
+    display: inline;
+  }
+  
+  #respond #commentform div.subscription-row p label {
+    font-weight: normal;
+    display: inline;
   }
 
   #respond #commentform div.button-row input[type="submit"] {
@@ -596,13 +622,13 @@ blockquote {
     clear: right;
   }
 
-  /* fix für threaded comments */
+  /* fix fÃ¼r threaded comments */
   li.comment #respond #commentform div.new-comment-author-info {
     float: left;
     clear: left;
   }
 
-  /* fix für threaded comments */
+  /* fix fÃ¼r threaded comments */
   li.comment #respond #commentform div.email-row {
     float: right;
     clear: right;
@@ -745,4 +771,71 @@ blockquote {
     display: hidden;
     visibility: none;
 }
+
+.post blockquote {
+    position: relative;
+    font-size: 1.125em;
+    line-height: 1.25em;
+    font-family:Georgia,'Times New Roman',Times,Serif;
+    font-style: italic;
+    color: #555;
+
+    display: block;
+    padding: 0 60px;
+    width: 350px;
+    min-height: 35px;
+
+    border: none;
+    padding-top: 20px;
+
+/*    quotes: '{' '}';   */
+}
+
+
+/*
+.post blockquote:first-line,
+.post blockquote p:first-line {
+    position: relative;
+    left: 10px;
+}
+
+.post blockquote::first-letter,
+.post blockquote p::first-letter {
+    font-size: 1.5em;
+    vertical-align: bottom;
+}
+*/
+
+blockquote:before, blockquote:after {
+    font-style: italic;
+    display: block;
+    font-size: 700%;
+    width: 50px;
+    color: #eee;
+}
+
+blockquote:before {
+    content: open-quote;
+    margin-left: -0.7em;
+    height: 0;
+    overflow: visible;
+    margin-top: -10px;
+    position: relative;
+    top: -10px;
+}
+
+blockquote:after {
+    content: close-quote;
+    height: 30px;
+    /* margin-top: -70px;*/
+    margin-top: -45px;
+    margin-left: 360px;
+}
+
+blockquote, q { quotes: 'Â»' 'Â«' '\2039' '\203A' }
+
+q {font-style: italic; }
+q:before, q:after { color: #555; }
+q:before { content: open-quote; }
+q:after { content: close-quote; }
 
