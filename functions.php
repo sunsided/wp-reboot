@@ -261,10 +261,10 @@ function reboot_inject_jquery_image_foo()
         var actualHeight = $(this).attr("naturalHeight");
         var setHeight = Math.round(actualHeight * setWidth / actualWidth);
 
-        $(this).attr("height", setHeight).attr("width", setWidth).attr("handled", true);
+        jQuery(this).attr("height", setHeight).attr("width", setWidth).attr("handled", true);
     }
 
-    $(document).ready(function() {
+    jQuery(document).ready(function($){
         $("li.post .entry-content img[class*='wp-image-']").each(scale);
     });
 </script>
@@ -291,7 +291,7 @@ function reboot_inject_facybox_foo()
     // dann mit der fancybox.
 ?>
 <script type="text/javascript" language="javascript">
-    $(document).ready(function() {
+    jQuery(document).ready(function($){
         $("li.post .entry-content a img[class*='wp-image-']").each(function() {
            var parent = $(this).parent();
            if(!parent.attr("title")) parent.attr("title", $(this).attr("title"));
@@ -308,7 +308,7 @@ function reboot_smooth_scrolling_foo()
 {
 ?>
 <script type="text/javascript" language="javascript">
-$(function(){
+jQuery(document).ready(function($){
     $('a[href*=#]').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
         && location.hostname == this.hostname) {
@@ -340,7 +340,7 @@ function reboot_inject_form_validation()
 ?>
 <script type="text/javascript" language="javascript" src="<?php bloginfo("stylesheet_directory")?>/js/jquery-validate/jquery.validate<?php echo $version ?>.js"></script>
 <script>
-  $(document).ready(function(){
+  jQuery(document).ready(function($){
     $("#commentform").validate({
             rules: { comment: "required", author: "required", email: { required: true, email: true }, url: { required: false, url: true } },
             errorClass: "invalid", validClass: "valid", errorPlacement: function(error, element) {},
