@@ -666,16 +666,32 @@ blockquote {
   #respond #commentform div:hover textarea {
       border-color: #999;
       background-color: #fefefe;
-
   }
 
   #respond #commentform div:hover label {
       color: #aaa;
   }
+  
+  #respond #commentform div input[type="text"].invalid,
+  #respond #commentform div textarea.invalid {
+    border-bottom-color: #D8A5AA;
+    border-bottom-width: 3px;
 
+    box-shadow: rgba(255, 128, 128, 0.1) 2px 2px 20px;
+      -moz-box-shadow: rgba(255, 128, 128, 0.1) 2px 2px 20px;
+      -webkit-box-shadow: rgba(255, 128, 128, 0.1) 2px 2px 20px;
+  }
+  /*
+  #respond #commentform div:hover input[type="text"].invalid,
+  #respond #commentform div:hover textarea.invalid {
+      border-color: #9C434B;
+  }
+  */
 
   #respond #commentform div input[type="text"]:focus,
-  #respond #commentform div textarea:focus {
+  #respond #commentform div input[type="text"].invalid:focus,
+  #respond #commentform div textarea:focus,
+  #respond #commentform div textarea.invalid:focus {
       border: 2px solid #5f87ae;
       background-color: #fefefe;
       color: #555;

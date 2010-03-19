@@ -1,12 +1,12 @@
 <?php
 
 define("ENABLE_JQUERY",             TRUE);
+define("ENABLE_FORMVALIDATION",     TRUE && ENABLE_JQUERY);
 define("ENABLE_FANCYBOX",           TRUE && ENABLE_JQUERY);
 define("ENABLE_IMAGE_SCALING",      FALSE && ENABLE_JQUERY);
 define("ENABLE_SMOOTH_SCROLL",      TRUE && ENABLE_JQUERY);
 
 // MIME abrocken
-
 PerformAwesomeMimeFoo();
 
 // dwoo laden
@@ -75,7 +75,7 @@ if(!function_exists('theme_queue_js'))
 {
     function theme_queue_js(){
       if (!is_admin()){
-        if (!is_page() AND is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+        if (is_single() && comments_open() && (get_option('thread_comments') == 1)) {
           wp_enqueue_script( 'comment-reply' );
         }
       }
@@ -321,3 +321,28 @@ $(function(){
 }
 
 if(ENABLE_SMOOTH_SCROLL) add_action( 'wp_head', 'reboot_smooth_scrolling_foo', 1004 );
+
+/**
+ * Krasse Kommentarvalidierungs-Action
+ */
+function reboot_inject_form_validation()
+{
+    if(!is_single() || !comments_open()) return;
+    
+    $version = '';
+    if($_SERVER["SERVER_ADDR"] != "127.0.0.1") $version .= ".pack";
+?>
+<script type="text/javascript" language="javascript" src="<?php bloginfo("stylesheet_directory")?>/js/jquery-validate/jquery.validate<?php echo $version ?>.js"></script>
+<script>
+  $(document).ready(function(){
+    $("#commentform").validate({
+            rules: { comment: "required", author: "required", email: { required: true, email: true }, url: { required: false, url: true } },
+            errorClass: "invalid", validClass: "valid", errorPlacement: function(error, element) {},
+        });
+  });
+</script>
+<?php
+}
+
+// Krasse Kommentarvalidierungs-Action einbinden - or not!
+if (ENABLE_FORMVALIDATION) add_action( 'wp_footer', 'reboot_inject_form_validation', 2000 );
