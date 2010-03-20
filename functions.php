@@ -70,6 +70,16 @@ function reboot_comments_form_title()
   return ob_get_clean();
 }
 
+function reboot_add_pingback()
+{
+    if(!is_single()) return;
+?>
+<link rel="trackback" href="<?php trackback_url() ?>" title="Trackback-URL für '<?php the_title(); ?>'" />
+<?php
+}
+
+add_action('wp_head', 'reboot_add_pingback');
+
 // threaded comments! Woo!
 if(!function_exists('theme_queue_js'))
 {

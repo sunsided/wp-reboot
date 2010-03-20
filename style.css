@@ -263,10 +263,17 @@ blockquote {
         -webkit-box-shadow: none;
     }
 
-    li.post a img:hover {
+    li.post a img:hover,
+    li.post a img:focus {
       box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
         -moz-box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
         -webkit-box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
+
+     -moz-transform: rotate(1.0deg) scale(1.01);  /* FF3.5+ */
+       -o-transform: rotate(1.0deg) scale(1.01);  /* Opera 10.5 */
+  -webkit-transform: rotate(1.0deg) scale(1.01);  /* Saf3.1+, Chrome */
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.011);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.011)"; /* IE8  */
     }
 
     li.post img.wp-smiley {

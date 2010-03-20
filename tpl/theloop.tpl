@@ -22,7 +22,6 @@
         </div>
 
         <div class="postmetadata" role="contentinfo">
-          <a class="trackback" href="<?php trackback_url() ?>" rel="trackback" title="Trackback URL<?php trackback_url(); ?>">Trackback URL</a>
           {if $post.has_tags}{include 'page_tags.tpl'}{/if}
           {if $post.has_categories}{include 'page_categories.tpl'}{/if}
         </div>
