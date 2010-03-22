@@ -1,5 +1,7 @@
 <?php
 
+  $dwooParams['page_classes'] = 'index';
+
   get_header();
 
   include(TEMPLATEPATH.'/theloop.php');

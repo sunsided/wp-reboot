@@ -1,3 +1,8 @@
+html, body {
+    position: relative;
+    height: 100%;
+}
+
 body {
   height: 100%;
   color: #454545;
@@ -36,7 +41,9 @@ blockquote {
   height: 100%;
   background: url(images/container-bg.png) repeat-y;
   margin: auto;
-  padding: 50px 45px;
+  /*padding: 50px 45px;*/
+  padding: 0 45px;
+  margin-top: 50px;
   position: relative;
 }
 
@@ -247,7 +254,30 @@ blockquote {
       box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
+
     }
+
+    li.post a img {
+      border: 1px solid silver;
+      padding: 5px;
+      left: -5px;
+      position: relative;
+      max-width: 100%;
+      border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+
+      box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
+        -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
+
+     -moz-transform: rotate(0.5deg);  /* FF3.5+ */
+       -o-transform: rotate(0.5deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(0.5deg);  /* Saf3.1+, Chrome */
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.006);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.006)"; /* IE8  */
+    }
+
 
     li.post img.wp-smiley,
     li.post img.noborder,
@@ -261,6 +291,12 @@ blockquote {
       box-shadow: none;
         -moz-box-shadow: none;
         -webkit-box-shadow: none;
+
+     -moz-transform: none;  /* FF3.5+ */
+       -o-transform: none;  /* Opera 10.5 */
+  -webkit-transform: none;  /* Saf3.1+, Chrome */
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.0);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.0)"; /* IE8  */
     }
 
     li.post a img:hover,
@@ -268,12 +304,6 @@ blockquote {
       box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
         -moz-box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
         -webkit-box-shadow: rgba(40, 40, 140, 0.3) 2px 2px 20px;
-
-     -moz-transform: rotate(1.0deg) scale(1.01);  /* FF3.5+ */
-       -o-transform: rotate(1.0deg) scale(1.01);  /* Opera 10.5 */
-  -webkit-transform: rotate(1.0deg) scale(1.01);  /* Saf3.1+, Chrome */
-             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.011);  /* IE6,IE7 */
-         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.011)"; /* IE8  */
     }
 
     li.post img.wp-smiley {

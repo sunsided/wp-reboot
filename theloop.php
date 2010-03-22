@@ -1,11 +1,12 @@
 <?php
 
+  global $dwooParams;
   if (have_posts())
   {
 
     $posts_tpl = array();
 
-		while (have_posts())
+	while (have_posts())
     {
       the_post();
 

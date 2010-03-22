@@ -1,8 +1,10 @@
 <?php
 
+  $dwooParams['page_classes'] = 'single';
+  $dwooParams['is_single'] = TRUE;
+
   get_header();
 
-  $dwooParams['is_single'] = TRUE;
   include(TEMPLATEPATH.'/theloop.php');
 
   /*get_sidebar();*/

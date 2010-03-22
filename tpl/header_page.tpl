@@ -1,7 +1,7 @@
 <body {language_attributes}>
 
   <a id="top" name="top"></a>
-  <div id="page">
+  <div id="page"{if $page_classes} class="{$page_classes}"{/if}>
 
     <div id="header" role="banner">
         <div class="title"><a href="{option 'home'}/" rel="home"><h1>{bloginfo 'name'}</h1></a></div>

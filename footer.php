@@ -1,6 +1,6 @@
 <?php
 
-  global $dwoo;
+  global $dwoo, $dwooParams;
 
   // Suchformular
   $search = array();
@@ -8,7 +8,7 @@
   $search["text"] = __("Blog durchsuchen...", "reboot");
 
   // Footer anzeigen
-  $params = array();
+  $params = $dwooParams;
   $params["search"] = $search;
 
   // Pagination!
