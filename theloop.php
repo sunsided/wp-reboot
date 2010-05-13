@@ -9,6 +9,7 @@
 	while (have_posts())
     {
       the_post();
+      echo "Kategorie! " .reboot_main_category() ." zors!";
 
       $the_post["id"] = $post->ID;
 
@@ -26,7 +27,7 @@
       $the_post["pub_time"] = ob_get_clean();
 
       // $the_post["pub_time"] = get_the_time(__('F jS, Y', 'reboot'));
-      $the_post["pub_author"] = sprintf(__('von %s', 'reboot'), get_the_author());
+      $the_post["pub_author"] = get_the_author(); //sprintf(__('von %s', 'reboot'), get_the_author());
 
       $the_post["password_required"] = post_password_required();
 

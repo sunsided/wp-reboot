@@ -8,9 +8,9 @@
         <div class="description">{bloginfo 'description'}</div>
 
         <div id="mainnavigation" class="menubar" role="navigation">
-          <a class="mainnavlink currenttopic" id="navtopersonal" href="#"><div>Persönliches</div></a>
-          <a class="mainnavlink" id="navtophoto" href="#"><div>Fotografie</div></a>
-          <a class="mainnavlink" id="navtocode" href="#"><div>Programmierung</div></a>
+          <a class="mainnavlink{if $current_subdomain == 'blog'} currenttopic{/if}" id="navtopersonal" href="{$urltopersonal}"><div>Persönliches</div></a>
+          <a class="mainnavlink{if $current_subdomain == 'photo'} currenttopic{/if}" id="navtophoto" href="{$urltophoto}"><div>Fotografie</div></a>
+          <a class="mainnavlink{if $current_subdomain == 'dev'} currenttopic{/if}" id="navtocode" href="{$urltocode}"><div>Programmierung</div></a>
         </div>
     </div>
 

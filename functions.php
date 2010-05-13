@@ -1,13 +1,21 @@
 <?php
 
+// Session starten, falls es noch nicht passiert ist.
+session_start();
+
 define("ENABLE_JQUERY",             TRUE);
 define("ENABLE_FORMVALIDATION",     TRUE && ENABLE_JQUERY);
 define("ENABLE_FANCYBOX",           TRUE && ENABLE_JQUERY);
 define("ENABLE_IMAGE_SCALING",      FALSE && ENABLE_JQUERY);
 define("ENABLE_SMOOTH_SCROLL",      TRUE && ENABLE_JQUERY);
 
+// Kategorie-Fun
+define('BLOG_CATEGORY', 1);
+define('PHOTO_CATEGORY', 8);
+define('DEV_CATEGORY', 21);
+
 // MIME abrocken
-PerformAwesomeMimeFoo();
+if($_SERVER["SERVER_ADDR"] != "127.0.0.1") PerformAwesomeMimeFoo();
 
 // dwoo laden
 include(TEMPLATEPATH.'/dwoo/dwooAutoload.php');
@@ -260,7 +268,7 @@ function reboot_inject_jquery_image_foo()
 
 ?>
 <script type="text/javascript" language="javascript">
-
+<!--
     scale = function() {
         if($(this).attr("handled")) return;
         if(!$(this).attr("complete")) {
@@ -279,6 +287,7 @@ function reboot_inject_jquery_image_foo()
     jQuery(document).ready(function($){
         $("li.post .entry-content img[class*='wp-image-']").each(scale);
     });
+-->
 </script>
 <?php
 }
@@ -303,6 +312,7 @@ function reboot_inject_facybox_foo()
     // dann mit der fancybox.
 ?>
 <script type="text/javascript" language="javascript">
+<!--
     jQuery(document).ready(function($){
         $("li.post .entry-content a img[class*='wp-image-']").each(function() {
            var parent = $(this).parent();
@@ -310,6 +320,7 @@ function reboot_inject_facybox_foo()
            parent.fancybox();
         });
     });
+-->
 </script>
 <?php
 }
@@ -320,6 +331,7 @@ function reboot_smooth_scrolling_foo()
 {
 ?>
 <script type="text/javascript" language="javascript">
+<!--
 jQuery(document).ready(function($){
     $('a[href*=#]').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
@@ -334,6 +346,7 @@ jQuery(document).ready(function($){
         }
     });
 });
+-->
 </script>
 <?php
 }
@@ -351,16 +364,99 @@ function reboot_inject_form_validation()
     if($_SERVER["SERVER_ADDR"] != "127.0.0.1") $version .= ".pack";
 ?>
 <script type="text/javascript" language="javascript" src="<?php bloginfo("stylesheet_directory")?>/js/jquery-validate/jquery.validate<?php echo $version ?>.js"></script>
-<script>
+<script type="text/javascript">
+<!--
   jQuery(document).ready(function($){
     $("#commentform").validate({
             rules: { comment: "required", author: "required", email: { required: true, email: true }, url: { required: false, url: true } },
-            errorClass: "invalid", validClass: "valid", errorPlacement: function(error, element) {},
+            errorClass: "invalid", validClass: "valid", errorPlacement: function(error, element) {}
         });
   });
+-->
 </script>
 <?php
 }
 
 // Krasse Kommentarvalidierungs-Action einbinden - or not!
 if (ENABLE_FORMVALIDATION) add_action( 'wp_footer', 'reboot_inject_form_validation', 2000 );
+
+
+if(!function_exists('post_is_in_descendant_category'))
+{
+    /**
+     * Tests if any of a post's assigned categories are descendants of target categories
+     *
+     * @param int|array $cats The target categories. Integer ID or array of integer IDs
+     * @param int|object $_post The post. Omit to test the current post in the Loop or main query
+     * @return bool True if at least 1 of the post's categories is a descendant of any of the target categories
+     * @see get_term_by() You can get a category by name or slug, then pass ID to this function
+     * @uses get_term_children() Passes $cats
+     * @uses in_category() Passes $_post (can be empty)
+     * @version 2.7
+     * @link http://codex.wordpress.org/Function_Reference/in_category#Testing_if_a_post_is_in_a_descendant_category
+     */
+    function post_is_in_descendant_category( $cats, $_post = null )
+    {
+    	foreach ( (array) $cats as $cat ) {
+    		// get_term_children() accepts integer ID only
+    		$descendants = get_term_children( (int) $cat, 'category');
+    		if ( $descendants && in_category( $descendants, $_post ) )
+    			return true;
+    	}
+    	return false;
+    }
+}
+
+/**
+ * Überprüft, ob ein Seitenaufruf oder ein Post in einer stereotypen Kategorie ist
+ * und gibt diese zurück. Im Erfolgsfall wird zusätzlich das define DETECTED_CATEGORY
+ * gesetzt.
+ *
+ * @global object $wp_the_query Die WP-Query
+ * @global object $post Das Post-Objekt, falls gesetzt
+ * @param int $category_id Die Kategorie-ID, auf die geprüft werden soll
+ * @return int Die stereotype Kategorie-ID oder 0 im Fehlerfall
+ */
+function reboot_match_category_and_define($category_id) {
+    global $wp_the_query;
+    $current_category = $wp_the_query->query_vars["cat"];
+    $post_id = null;
+
+    if(is_single()) {
+        global $post;
+        $post_id = $post->ID;
+    }
+
+    if($category_id == $current_category || in_category( $category_id, $post_id) || post_is_in_descendant_category($category_id, $post_id)) {
+        if(!defined("DETECTED_CATEGORY")) define("DETECTED_CATEGORY", $category_id);
+        return true;
+    }
+    return false;
+}
+
+/**
+ * Ermittelt die stereotype Kategorie-ID
+ * @return int Die Kategorie-ID oder 0
+ */
+function reboot_detect_main_category()
+{
+    if(defined("DETECTED_CATEGORY")) return DETECTED_CATEGORY;
+    if(reboot_match_category_and_define(BLOG_CATEGORY)) return BLOG_CATEGORY;
+    if(reboot_match_category_and_define(PHOTO_CATEGORY)) return PHOTO_CATEGORY;
+    if(reboot_match_category_and_define(DEV_CATEGORY)) return DEV_CATEGORY;
+    
+    return 0;
+}
+
+/**
+ * Liefert die stereotype Kategorie-ID
+ * @return int Die stereotype Kategorie-ID
+ */
+function reboot_main_category_id()
+{
+    if(defined("DETECTED_CATEGORY")) return DETECTED_CATEGORY;
+    return 0;
+}
+
+add_action( 'wp_head', 'reboot_detect_main_category', -100 );
+add_action( 'loop_start', 'reboot_detect_main_category', -100 );

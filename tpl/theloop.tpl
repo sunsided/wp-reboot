@@ -17,7 +17,7 @@
 		</div>
 
         <div class="info post-info" role="contentinfo">
-          {$post.pub_time} {include 'page_pubauthor_short.tpl'}
+          {$post.pub_time} {translate 'von'} {include 'page_pubauthor_short.tpl'}
           {edit_post_link 'bearbeiten', '~ ', ''}
         </div>
 

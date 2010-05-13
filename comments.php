@@ -35,10 +35,10 @@ if(function_exists('get_PaginationFuComments'))
 else
 {
     ob_start();
-    previous_comments_link(__('« Older Comments', 'reboot'));
+    previous_comments_link(__('ï¿½ Older Comments', 'reboot'));
     $older_comments_link = ob_get_clean();
     ob_start();
-    next_comments_link(__('Newer Comments »', 'reboot'));
+    next_comments_link(__('Newer Comments ï¿½', 'reboot'));
     $newer_comments_link = ob_get_clean();
 
     $localDwooParams['has_older_comments_link'] = !empty($older_comments_link);
@@ -58,7 +58,7 @@ do_action('comment_form', $post->ID);
 $comment_form_action = ob_get_clean();
 $localDwooParams['comment_form_action'] = $comment_form_action;
 
-// Generelle Meldungen anhängen
+// Generelle Meldungen anhï¿½ngen
 $localDwooParams['comment_login_message'] = sprintf(__('Du musst <a href="%s">eingeloggt sein</a>, um einen Kommentar zu posten.', 'reboot'), wp_login_url(get_permalink()));
 $localDwooParams['comment_logged_in_message'] = sprintf(__('Eingeloggt als <a href="%s/wp-admin/profile.php">%s</a>. <a href="%s" title="Aus diesem Accout ausloggen">Ausloggen &raquo;</a>', 'reboot'), get_option('siteurl'), $user_identity, wp_logout_url(get_permalink()));
 $localDwooParams['comment_registration_needed'] = get_option('comment_registration');
