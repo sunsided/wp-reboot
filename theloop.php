@@ -9,7 +9,7 @@
 	while (have_posts())
     {
       the_post();
-      echo "Kategorie! " .reboot_main_category() ." zors!";
+      echo "Kategorie! " .reboot_main_category_id() ." zors!";
 
       $the_post["id"] = $post->ID;
 
