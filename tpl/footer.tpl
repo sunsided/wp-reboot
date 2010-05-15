@@ -14,6 +14,8 @@
       Zurück nach <a href="#top">oben</a>.
       {include 'searchform.tpl'}
 
+        <small><?php timer_stop(1); ?> <?php _e('seconds'); ?></small>
+
     </div>
   </div>
 

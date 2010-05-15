@@ -13,6 +13,7 @@ define("ENABLE_SMOOTH_SCROLL",      TRUE && ENABLE_JQUERY);
 define('BLOG_CATEGORY', 1);
 define('PHOTO_CATEGORY', 8);
 define('DEV_CATEGORY', 21);
+define('DEFAULT_CATEGORY', BLOG_CATEGORY);
 
 // MIME abrocken
 if($_SERVER["SERVER_ADDR"] != "127.0.0.1") PerformAwesomeMimeFoo();
@@ -420,14 +421,21 @@ if(!function_exists('post_is_in_descendant_category'))
 function reboot_match_category_and_define($category_id) {
     global $wp_the_query;
     $current_category = $wp_the_query->query_vars["cat"];
-    $post_id = null;
 
-    if(is_single()) {
+    $post_id = null;
+    if(!is_home() && is_single()) {
         global $post;
         $post_id = $post->ID;
     }
 
-    if($category_id == $current_category || in_category( $category_id, $post_id) || post_is_in_descendant_category($category_id, $post_id)) {
+    if(     ($category_id == $current_category) ||
+            (!empty($post_id) &&
+                (
+                    in_category( $category_id, $post_id) ||
+                    post_is_in_descendant_category($category_id, $post_id)
+                )
+            )
+      ) {
         if(!defined("DETECTED_CATEGORY")) define("DETECTED_CATEGORY", $category_id);
         return true;
     }
@@ -444,6 +452,12 @@ function reboot_detect_main_category()
     if(reboot_match_category_and_define(BLOG_CATEGORY)) return BLOG_CATEGORY;
     if(reboot_match_category_and_define(PHOTO_CATEGORY)) return PHOTO_CATEGORY;
     if(reboot_match_category_and_define(DEV_CATEGORY)) return DEV_CATEGORY;
+
+    // Keite Kategorie ermittelt, dann Sekundärcheck
+    if(is_home()) {
+        define("DETECTED_CATEGORY", DEFAULT_CATEGORY);
+        return DEFAULT_CATEGORY;
+    }
     
     return 0;
 }
@@ -459,4 +473,4 @@ function reboot_main_category_id()
 }
 
 add_action( 'wp_head', 'reboot_detect_main_category', -100 );
-add_action( 'loop_start', 'reboot_detect_main_category', -100 );
+//add_action( 'loop_start', 'reboot_detect_main_category', -100 );
