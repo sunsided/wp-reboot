@@ -4,6 +4,7 @@
   <div id="page"{if $page_classes} class="{$page_classes}"{/if}>
 
     <div id="header" role="banner">
+        <div class="transparency"></div>
         <div class="title"><a href="{option 'home'}/" rel="home"><h1>{bloginfo 'name'}</h1></a></div>
         <div class="description">{bloginfo 'description'}</div>
 

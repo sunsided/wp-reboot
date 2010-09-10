@@ -1,15 +1,16 @@
 <?php
-
   global $dwooParams;
+
+  echo "Kategorie! " .reboot_main_category_id() ." zors!";
+
   if (have_posts())
   {
 
     $posts_tpl = array();
 
-	while (have_posts())
+    while (have_posts())
     {
       the_post();
-      echo "Kategorie! " .reboot_main_category_id() ." zors!";
 
       $the_post["id"] = $post->ID;
 
@@ -43,7 +44,7 @@
       $the_post["author"] = array();
       $the_post["author"]["nickname"] = $authordata->nickname;       // nick
       $the_post["author"]["nicename"] = $authordata->user_nicename;       // login
-      $the_post["author"]["displayname"] = $authordata->user_displayname; // der ausgewählte Name
+      $the_post["author"]["displayname"] = $authordata->display_name; // der ausgewählte Name
       $the_post["author"]["firstname"] = $authordata->user_firstname;
       $the_post["author"]["lastname"] = $authordata->user_lastname;
       $the_post["author"]["url"] = $authordata->user_url;
@@ -81,7 +82,7 @@
           // Tag anhängen
           $the_post["tag_list"][] = $the_tag;
         }
-        usort($the_post["tag_list"], reboot_sort_tc);
+        usort($the_post["tag_list"], 'reboot_sort_tc');
       }
 
       // Kategorien ermitteln
@@ -105,7 +106,7 @@
           // Kategorie anhängen
           $the_post["category_list"][] = $the_category;
         }
-        usort($the_post["category_list"], reboot_sort_tc);
+        usort($the_post["category_list"], 'reboot_sort_tc');
       }
 
       // Kommentarfunktionalität

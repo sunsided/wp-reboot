@@ -18,7 +18,7 @@
 
         <div class="info post-info" role="contentinfo">
           {$post.pub_time} {translate 'von'} {include 'page_pubauthor_short.tpl'}
-          {edit_post_link 'bearbeiten', '~ ', ''}
+          {edit_post_link 'bearbeiten', '~ ', '', $post.id}
         </div>
 
         <div class="postmetadata" role="contentinfo">

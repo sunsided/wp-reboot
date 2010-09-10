@@ -13,7 +13,7 @@ define("ENABLE_SMOOTH_SCROLL",      TRUE && ENABLE_JQUERY);
 define('BLOG_CATEGORY', 1);
 define('PHOTO_CATEGORY', 8);
 define('DEV_CATEGORY', 21);
-define('DEFAULT_CATEGORY', BLOG_CATEGORY);
+define('DEFAULT_CATEGORY', 0);
 
 // MIME abrocken
 if($_SERVER["SERVER_ADDR"] != "127.0.0.1") PerformAwesomeMimeFoo();
@@ -436,7 +436,9 @@ function reboot_match_category_and_define($category_id) {
                 )
             )
       ) {
-        if(!defined("DETECTED_CATEGORY")) define("DETECTED_CATEGORY", $category_id);
+        if(!defined("DETECTED_CATEGORY")) {
+            define("DETECTED_CATEGORY", $category_id);
+        }
         return true;
     }
     return false;

@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="{bloginfo 'stylesheet_url'}" type="text/css" media="screen" />
 
 <link rel="pingback" href="{bloginfo 'pingback_url'}" />
-<link rel="shortcut icon" href="{bloginfo 'stylesheet_directory'}/images/favicon.png" />
+<link rel="shortcut icon" href="{bloginfo 'stylesheet_directory'}/images/favicon-photo.ico" />
 
 <link rel="alternate" type="application/rss+xml" title="{rssfeed_title '%s RSS Feed'}" href="{bloginfo 'rss2_url'}" />
 
