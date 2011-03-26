@@ -1,3 +1,5 @@
-compiled
-cache
+compiled/*
+cache/*
+dwoo/compiled/*
+dwoo/cache/*
 *.bak
