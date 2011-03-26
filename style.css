@@ -28,6 +28,24 @@ a {
   text-decoration: none;
 }
 
+a:hover, a:active {
+  text-decoration: underline;
+  color: #ff3300;
+}
+
+a:visited {
+  color: #68bdda;
+}
+
+a:visited:hover, a:visited:active {
+  color: #f25c37;
+}
+
+h2.title a.title:hover, h2.title a.title:active,
+a.tag:hover, a.tag:active, a.category:hover, a.category:active{
+  text-decoration: none;
+}
+
 
 p {
   margin: 0 0 14px 0;
@@ -60,7 +78,7 @@ blockquote {
     width: 535px;
     overflow: hidden;
     height: 75px;
-    background: white url(images/backdrop-4.jpg);
+    background: black url(images/backdrop-4.jpg);
     /*background-position: 0px -30px;*/
     background-position: 0px -60px;
     margin: -50px 0 0 -35px;
@@ -158,6 +176,15 @@ blockquote {
       top: -2px;
     }
 
+    #page #mainnavigation #navtoglobal {
+        padding: 0px 5px 0px 5px;
+    }
+
+    #page #mainnavigation #navtoglobal img {
+        top: 4px;
+        position: relative;
+    }
+
 
     #page #mainnavigation .mainnavlink.currenttopic {
 
@@ -170,6 +197,7 @@ blockquote {
 
       height: 14px;
       background: white;
+      font-weight: bold;
 
       border-bottom: 8px solid white;
     }
@@ -223,14 +251,22 @@ blockquote {
       margin: 0 0 80px 0;
       position: relative;
     }
-      #page .post h2.title  {
+      #page .post h2.title,
+      #page #searchresult_header h2,
+      #page .posts h2.main,
+      #page .posts h2.otherblog {
         text-shadow: 1px 1px #CCCCDD;
         margin: 0 0 14px 0;
         font-size: 24px;
         line-height: 26px;
       }
 
-      #page .post h3 {
+      #page .posts h2.otherblog {
+        font-size: 16px;
+      }
+
+      #page .post h3,
+      #page .posts h3{
         color: #666; /* #036d91; */
         text-shadow: 1px 1px #EEEEFF;
         margin: 0 0 14px 0;
@@ -245,7 +281,8 @@ blockquote {
       #page li.post div.commentlink {
       }
 
-      #page li.post div.commentlink a {
+      #page li.post div.commentlink a,
+      #page li.post div.commentlink span {
         color: #2e2d2a;
         font-size: 12px;
         /*font-weight: bold;*/
@@ -270,8 +307,21 @@ blockquote {
         top: 0px;
         right: -167px;
       }
+    
+    #page li.post div.commentlink span {
+        background: #fbffb6;
+    }
+      
+    #page li.post div.commentlink span:before {
+        content: '(';
+    }
+    
+    #page li.post div.commentlink span:after {
+        content: ')';
+    }
 
-    li.post img {
+    li.post img,
+    .posts img#fourohfour {
       border: 1px solid silver;
       padding: 5px;
       left: -5px;
@@ -285,6 +335,10 @@ blockquote {
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
 
+    }
+
+    .posts img#fourohfour {
+        margin-bottom: 20px;
     }
 
     li.post a img {
@@ -833,6 +887,27 @@ blockquote {
     width: 100%;
   }
 
+  #footer-head {
+      margin-top: -20px;
+      margin-bottom: 20px;
+  }
+
+  #footer-right, #footer-left {
+    width: 50%;
+  }
+
+  #footer-left {
+      float: left;
+      clear: left;
+      width: 300px;
+    }
+
+  #footer-right {
+      float: right;
+      clear: right;
+      width: 180px;
+    }
+
 
   #footer .credit {
     height: 50px;
@@ -987,3 +1062,79 @@ span.numbers {
     font-family:Georgia,'Times New Roman',Times,Serif;
 }
 
+.flowbreaker {
+    clear: both;
+}
+
+ul.sidebar {
+    list-style: none;
+}
+
+ul.sidebar li {
+    margin-bottom: 20px;
+}
+
+ul.sidebar li ul li {
+    font-size: 12px;
+    margin-bottom: 0;
+    margin-left: 2em;
+    list-style-type: disc;
+}
+
+ul.sidebar h2.widgettitle {
+    font-weight: bold;
+}
+
+#wp-calendar {
+    font-size: 12px;
+}
+
+#wp-calendar td, #wp-calendar th {
+    width: 20px;
+    text-align: center;
+}
+
+#wp-calendar td {
+    color: #7f7f7f;
+}
+
+#wp-calendar td a {
+    font-weight: bold;
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+div.searchresults {
+    position: relative;
+}
+
+div.searchresults p.intro {
+    margin-bottom: 5px;
+}
+
+div.searchresults p.intro strong {
+    padding-left: 15px;
+    background: url(images/star.gif) 0px 2px no-repeat;
+}
+
+div.searchresults ol {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+div.searchresults li a.postlink {
+    margin-bottom: -5px;
+}
+
+div.searchresults li abbr.date {
+    font-size: 0.8em;
+    top: -5px;
+    position: relative;
+}
+
+small {
+    font-size: 0.75em;
+}

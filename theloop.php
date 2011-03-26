@@ -1,8 +1,6 @@
 <?php
   global $dwooParams;
 
-  echo "Kategorie! " .reboot_main_category_id() ." zors!";
-
   if (have_posts())
   {
 

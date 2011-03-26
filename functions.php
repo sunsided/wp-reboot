@@ -10,10 +10,41 @@ define("ENABLE_IMAGE_SCALING",      FALSE && ENABLE_JQUERY);
 define("ENABLE_SMOOTH_SCROLL",      TRUE && ENABLE_JQUERY);
 
 // Kategorie-Fun
-define('BLOG_CATEGORY', 1);
-define('PHOTO_CATEGORY', 8);
-define('DEV_CATEGORY', 21);
-define('DEFAULT_CATEGORY', 0);
+define('BLOG_CATEGORY', 4);
+define('PHOTO_CATEGORY', 2);
+define('DEV_CATEGORY', 3);
+define('CURRENT_BLOG', $GLOBALS['blog_id']);
+
+// Sidebars registrieren
+if (function_exists("register_sidebar")) {
+
+    register_sidebar(array(
+        'name'          => "Header",
+        'id'            => "header",
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</li>',
+	'before_title'  => '<h2 class="widgettitle">',
+	'after_title'   => '</h2>' )
+        );
+
+    register_sidebar(array(
+        'name'          => "Footer (links)",
+        'id'            => "footer_left",
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</li>',
+	'before_title'  => '<h2 class="widgettitle">',
+	'after_title'   => '</h2>' )
+        );
+
+    register_sidebar(array( 
+        'name'          => "Footer (rechts)",
+        'id'            => "footer_right",
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+	'after_widget'  => '</li>',
+	'before_title'  => '<h2 class="widgettitle">',
+	'after_title'   => '</h2>' )
+        );
+}
 
 // MIME abrocken
 if($_SERVER["SERVER_ADDR"] != "127.0.0.1") PerformAwesomeMimeFoo();
@@ -28,6 +59,7 @@ $dwooParams = array();
 // Standardparameter setzen
 $dwooParams['user_logged_in']   = is_user_logged_in();
 $dwooParams['user_identity']    = $user_identity;
+$dwooParams["user_is_admin"] = current_user_can('level_10');
 
 // Dwoo-Templatepfad registrieren
 define('TPL_PATH', TEMPLATEPATH.'/tpl');
@@ -410,15 +442,14 @@ if(!function_exists('post_is_in_descendant_category'))
 
 /**
  * Überprüft, ob ein Seitenaufruf oder ein Post in einer stereotypen Kategorie ist
- * und gibt diese zurück. Im Erfolgsfall wird zusätzlich das define DETECTED_CATEGORY
- * gesetzt.
+ * und gibt diese zurück.
  *
  * @global object $wp_the_query Die WP-Query
  * @global object $post Das Post-Objekt, falls gesetzt
  * @param int $category_id Die Kategorie-ID, auf die geprüft werden soll
- * @return int Die stereotype Kategorie-ID oder 0 im Fehlerfall
+ * @return bool true oder false
  */
-function reboot_match_category_and_define($category_id) {
+function reboot_match_category($category_id) {
     global $wp_the_query;
     $current_category = $wp_the_query->query_vars["cat"];
 
@@ -436,43 +467,26 @@ function reboot_match_category_and_define($category_id) {
                 )
             )
       ) {
-        if(!defined("DETECTED_CATEGORY")) {
-            define("DETECTED_CATEGORY", $category_id);
-        }
         return true;
     }
     return false;
 }
 
-/**
- * Ermittelt die stereotype Kategorie-ID
- * @return int Die Kategorie-ID oder 0
- */
-function reboot_detect_main_category()
-{
-    if(defined("DETECTED_CATEGORY")) return DETECTED_CATEGORY;
-    if(reboot_match_category_and_define(BLOG_CATEGORY)) return BLOG_CATEGORY;
-    if(reboot_match_category_and_define(PHOTO_CATEGORY)) return PHOTO_CATEGORY;
-    if(reboot_match_category_and_define(DEV_CATEGORY)) return DEV_CATEGORY;
-
-    // Keite Kategorie ermittelt, dann Sekundärcheck
-    if(is_home()) {
-        define("DETECTED_CATEGORY", DEFAULT_CATEGORY);
-        return DEFAULT_CATEGORY;
-    }
-    
-    return 0;
-}
-
-/**
- * Liefert die stereotype Kategorie-ID
- * @return int Die stereotype Kategorie-ID
- */
-function reboot_main_category_id()
-{
-    if(defined("DETECTED_CATEGORY")) return DETECTED_CATEGORY;
-    return 0;
-}
-
-add_action( 'wp_head', 'reboot_detect_main_category', -100 );
+//add_action( 'wp_head', 'reboot_detect_main_category', -100 );
 //add_action( 'loop_start', 'reboot_detect_main_category', -100 );
+
+/**
+ * Durchsucht den angegebenen Blog
+ *
+ * @param int $blog_id Die Blog-ID
+ * @param string $terms Die Suchbegriffe
+ * @param bool $restore_blog Gibt an, ob nach Abschluss der Suche der derzeitige Blog ausgewählt werden soll
+ * @return Die Query
+ */
+function search_blog($terms, $blog_id = CURRENT_BLOG, $restore_blog = TRUE) {
+    if ($blog_id != CURRENT_BLOG) switch_to_blog($blog_id);
+    $search = new WP_Query();
+    $posts = $search->query('s='.$terms);
+    if ($blog_id != CURRENT_BLOG && $restore_blog) restore_current_blog();
+    return $posts;
+}
