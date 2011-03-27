@@ -722,6 +722,10 @@ blockquote {
     width: auto;
   }
   
+  #respond #commentform div.button-row #submit {
+    margin-top: 15px;
+  }  
+  
   #respond #commentform div.subscription-row  {
     float: right;
     height: 50px;
