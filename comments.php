@@ -117,7 +117,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 
         <div id="respond" class="{if $user_logged_in}user-logged-in{else}anon-user{/if}">
 
-        <h3><?php reboot_comments_form_title(); ?></h3>
+        <h3><?php echo reboot_comments_form_title(); ?></h3>
 
         <div class="cancel-comment-reply">
         	<small>{cancel_comment_reply_link}</small>
