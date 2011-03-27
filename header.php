@@ -77,9 +77,9 @@ else $GLOBALS['current_subdomain'] = 'blog';
         <div class="description"><?php bloginfo("description") ?></div>
 
         <div id="mainnavigation" class="menubar" role="navigation">
-          <a class="mainnavlink<?php if($GLOBALS['page_classes'] == 'blog'): ?>} currenttopic<?php endif; ?>" id="navtopersonal" rel="me bookmark" href="<?php echo $GLOBALS['urltopersonal'] ?>" title="<?php echo $GLOBALS['titleforpersonal']; ?>"><div>Persönliches</div></a>
-          <a class="mainnavlink<?php if($GLOBALS['page_classes'] == 'photo'): ?> currenttopic<?php endif; ?>" id="navtophoto" rel="me bookmark" href="<?php echo $GLOBALS['urltophoto']; ?>" title="<?php echo $GLOBALS['titleforphoto']; ?>"><div>Fotografie</div></a>
-          <a class="mainnavlink<?php if($GLOBALS['page_classes'] == 'dev'): ?> currenttopic<?php endif; ?>" id="navtocode" rel="me bookmark" href="<?php echo $GLOBALS['urltocode']; ?>" title="<?php echo $GLOBALS['titleforcode']; ?>"><div>Programmierung</div></a>
+          <a class="mainnavlink<?php if($GLOBALS['current_subdomain'] == 'blog'): ?> currenttopic<?php endif; ?>" id="navtopersonal" rel="me bookmark" href="<?php echo $GLOBALS['urltopersonal'] ?>" title="<?php echo $GLOBALS['titleforpersonal']; ?>"><div>Persönliches</div></a>
+          <a class="mainnavlink<?php if($GLOBALS['current_subdomain'] == 'photo'): ?> currenttopic<?php endif; ?>" id="navtophoto" rel="me bookmark" href="<?php echo $GLOBALS['urltophoto']; ?>" title="<?php echo $GLOBALS['titleforphoto']; ?>"><div>Fotografie</div></a>
+          <a class="mainnavlink<?php if($GLOBALS['current_subdomain'] == 'dev'): ?> currenttopic<?php endif; ?>" id="navtocode" rel="me bookmark" href="<?php echo $GLOBALS['urltocode']; ?>" title="<?php echo $GLOBALS['titleforcode']; ?>"><div>Programmierung</div></a>
         </div>
     </div>
 
