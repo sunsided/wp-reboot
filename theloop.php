@@ -129,7 +129,7 @@
 		</div>
 
         <div class="info post-info" role="contentinfo">
-			<?php the_time_ago(__('F jS, Y', 'reboot')); ?> <?php __('von', 'reboot'); ?>
+			<?php the_time_ago(__('F jS, Y', 'reboot')); ?> <?php _e('von', 'reboot'); ?>
 		  
 			<!-- vcard des Authors -->
 			<address class="author vcard">

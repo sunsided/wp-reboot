@@ -73,12 +73,18 @@ $localDwooParams['req'] = $req;
 
 <div class="comments">
 
-{if $post.password_required}
-    <p class="nocomments">{translate 'This post is password protected. Enter the password to view comments.'}</p>
-{else}
+<?php if(post_password_required()): ?>
+    <p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.', 'reboot');</p>
+<?php else: /* --> not password protected */ ?>
 
-    {if $post.has_comments}
-    	<h3 id="comments">{include 'comments_pageheading.tpl'}</h3>
+	<?php if($post->comment_count > 0): ?>
+    	<h3 id="comments">
+		<?php 
+		$title = __("%comments% auf &#8222;%title%&#8220;", 'reboot');|
+		$title = str_replace('%comments%', reboot_comments_count_text(), $title);
+		$title = str_replace('%title%', get_the_title(), $title);
+		echo $title;
+		</h3>
 
         {include 'comments_navigation.tpl'}
 
@@ -89,16 +95,18 @@ $localDwooParams['req'] = $req;
         {include 'comments_navigation.tpl'}
 
      {else}
-         {if $post.comments_open}
+	<?php else: /* --> keine Kommentare */ ?>
+	 
+		 <?php if(comments_open()): ?>
              <!-- comments are open, but there are no comments. -->
-         {else}
+         <?php else: ?>
             <!-- comments are closed. -->
-            <p class="nocomments">{translate 'Comments are closed.'}</p>
-         {/if}
-    {/if}
+            <p class="nocomments"><?php _e('Comments are closed.', 'reboot'); ?></p>
+         <?php endif; ?>
+    <?php endif; /* Kommentare offen */ ?>
 
 
-    {if $post.comments_open}
+    <?php if(comments_open()): ?>
 
         <div id="respond" class="{if $user_logged_in}user-logged-in{else}anon-user{/if}">
 
@@ -128,9 +136,9 @@ $localDwooParams['req'] = $req;
 
         </div>
 
-    {/if}
+    <?php endif; /* Kommentare offen */ ?>
 
-{/if}
+<?php endif; /* password protected */ ?>
 
 </div>
 
