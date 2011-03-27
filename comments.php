@@ -38,9 +38,6 @@ ob_start();
 show_subscription_checkbox();
 $subscriptionCheckbox = ob_get_clean();
 
-// Generelle Meldungen anh�ngen
-$localDwooParams['comment_logged_in_message'] = sprintf(__('Eingeloggt als <a href="%s/wp-admin/profile.php">%s</a>. <a href="%s" title="Aus diesem Accout ausloggen">Ausloggen &raquo;</a>', 'reboot'), get_option('siteurl'), $user_identity, wp_logout_url(get_permalink()));
-
 // Aktueller Kommentator
 $localDwooParams['comment_author'] = $comment_author;
 $localDwooParams['comment_author_email'] = $comment_author_email;
@@ -118,16 +115,62 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
             <p class="comment-login-needed"><?php echo sprintf(__('Du musst <a href="%s">eingeloggt sein</a>, um einen Kommentar zu posten.', 'reboot'), wp_login_url(get_permalink())); ?></p>
         <?php else: ?>
 
-            <form action="{option 'siteurl'}/wp-comments-post.php" method="post" id="commentform">
+            <form action="<?php echo get_option('siteurl') ?>/wp-comments-post.php" method="post" id="commentform">
 
-            {include 'comments_form_fields.tpl'}
+				<?php if(is_user_logged_in()): ?><p><?php echo sprintf(__('Eingeloggt als <a href="%s/wp-admin/profile.php">%s</a>. <a href="%s" title="Aus diesem Account ausloggen">Ausloggen &raquo;</a>', 'reboot'), get_option('siteurl'), $GLOBALS['user_identity'], wp_logout_url(get_permalink())); ?></p><?php endif; ?>
 
-			<?php if(!empty($subscriptionCheckbox)): ?><div class="subscription-row"><?php echo $subscriptionCheckbox ?></div><?php endif; ?>
-            <div class="button-row"><input tabindex="10" name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Kommentar absenden', 'reboot') ?>" />
-				<?php echo comment_id_fields(); ?>
-            </div>
-            
-			<?php do_action('comment_form', $post->ID); ?>
+				<script language="javascript" type="text/javascript">
+				<!--
+					function rebootFocus(idElement){ document.getElementById(idElement).setAttribute("class", "focused"); }
+					function rebootUnfocus(idElement){ document.getElementById(idElement).setAttribute("class", "unfocused"); }
+				-->
+				</script>
+
+				<!--<p><small><strong>XHTML:</strong> You can use these tags: <code><?php echo allowed_tags(); ?></code></small></p>-->
+
+				<div class="comment-row commenttext">
+				<label id="comment-label" for="comment"><?php _e('Dein Kommentar:', 'reboot'); ?></label>
+				<textarea
+					onFocus="javascript:rebootFocus('comment-label');"
+					onBlur="javascript:rebootUnfocus('comment-label');"
+					tabindex="1" name="comment" id="comment" class="commenttext required" cols="58" rows="10" tabindex="4" aria-required="true"></textarea>
+				</div>
+
+				<?php if(!is_user_logged_in()): ?>
+
+					<div class="author-row new-comment-author-info">
+					<label id="author-label" for="author"><?php _e('Name', 'reboot') ?> <span class="required-note"><?php _e('(ben&#246;tigt)', 'reboot') ?></span></label>
+					<input
+						onFocus="javascript:rebootFocus('author-label');"
+						onBlur="javascript:rebootUnfocus('author-label');"
+						tabindex="2" class="author{if $req} required{/if}" type="text" name="author" id="author" value="{esc_attr $comment_author}" size="22" tabindex="1" aria-required="true" />
+					</div>
+
+					<div class="email-row new-comment-author-info">
+					<label id="email-label" for="email"><?php _e('Mail <span class="not-published-note">(geheim)</span>', 'reboot'); ?> <span class="required-note"><?php _e('(ben&#246;tigt)', 'reboot') ?></span></label>
+					<input
+						onFocus="javascript:rebootFocus('email-label');"
+						onBlur="javascript:rebootUnfocus('email-label');"
+						tabindex="3" class="email required" type="text" name="email" id="email" value="{esc_attr $comment_author_email}" size="22" tabindex="2" aria-required="true" />
+					</div>
+
+					<div class="url-row new-comment-author-info">
+					<label id="url-label" for="url"><?php _e('Website', 'reboot'); ?></label>
+					<input
+						onFocus="javascript:rebootFocus('url-label');"
+						onBlur="javascript:rebootUnfocus('url-label');"
+						tabindex="4" class="url" type="text" name="url" id="url" value="{esc_attr $comment_author_url}" size="22" tabindex="3" />
+					</div>
+
+				<?php endif; /* user not logged in */ ?>
+				
+
+				<?php if(!empty($subscriptionCheckbox)): ?><div class="subscription-row"><?php echo $subscriptionCheckbox ?></div><?php endif; ?>
+				<div class="button-row"><input tabindex="10" name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Kommentar absenden', 'reboot') ?>" />
+					<?php echo comment_id_fields(); ?>
+				</div>
+				
+				<?php do_action('comment_form', $post->ID); ?>
 
             </form>
 
