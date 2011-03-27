@@ -21,7 +21,6 @@ body {
   line-height: 24px;
   font-family: "Lato", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Calibri,Verdana,sans-serif;
   font-weight: 300;
-  background: url(images/bg.jpg);
   -webkit-text-stroke: 1px transparent;
 }
 
@@ -66,9 +65,8 @@ blockquote {
 }
 
 #page {
-  width: 500px;
+  width: 600px;
   height: 100%;
-  background: url(images/container-bg.png) repeat-y;
   margin: auto;
   padding: 50px 45px;
   /*padding: 0 45px;
@@ -77,7 +75,7 @@ blockquote {
 }
 
   #page #header {
-    width: 535px;
+    width: 635px;
     overflow: hidden;
     height: 75px;
     background: black url(images/backdrop-4.jpg);
@@ -144,7 +142,7 @@ blockquote {
 
   #page #mainnavigation {
     position: absolute;
-    width: 570px;
+    width: 670px;
     height: 25px;
     top: 111px;
     left: 10px;
@@ -232,7 +230,7 @@ blockquote {
 
 
   #page .separate {
-    width: 570px;
+    width: 670px;
     height: 8px;
     background: #EFEFEF;
     clear: both;
