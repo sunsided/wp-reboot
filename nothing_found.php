@@ -4,7 +4,7 @@
 
           <?php if (is_search()): ?>
                 <h2 class="main"><?php __('Blog durchsucht - Nichts gefunden.', "reboot") ?></h2>
-		<p>Du hast diesen Blog nach dem Inhalt <q><?php the_search_query(); ?></q> durchsucht. Wir haben wirklich überall nachgesehen, aber nichts passendes finden können.</p>
+		<p>Das war wohl nichts. Wir haben hier wirklich überall nachgesehen, aber <q><?php the_search_query(); ?></q> konnten wir nicht finden.</p>
           <?php else: ?>
                 <h2 class="main"><?php __('Unbekannt verzogen - Nichts gefunden.', "reboot") ?></h2>
                 <p>Hoppla, da ist wohl etwas schiefgegangen. Wir haben wirklich überall nachgesehen, konnten die Seite aber nicht finden.</p>
@@ -44,7 +44,7 @@
                 if ($count > 0)
                 {
                     echo "<h2 class=\"otherblog\">Aber! Obacht!</h2>".PHP_EOL;
-                    echo "<p>Beim Durchsuchen der anderen Blogs fanden sich tatsächlich Ergebnisse.<p>";
+                    echo "<p>Beim Durchsuchen der anderen Blogs fanden sich Ergebnisse.<p>";
 
                     for ($i = 0; $i<count($blogs); $i++)
                     {
