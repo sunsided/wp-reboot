@@ -66,7 +66,7 @@ else $dwooParams['current_subdomain'] = 'blog';
 <body <?php language_attributes(); ?>>
 
   <a id="top" name="top"></a>
-  <div id="page"<?php if(!empty($GLOBALS["page_classes"])): ?> class="<?php echo $GLOBALS["page_classes"]; =>"<?php endif; ?>>
+  <div id="page"<?php if(!empty($GLOBALS["page_classes"])): ?> class="<?php echo $GLOBALS["page_classes"]; ?>"<?php endif; ?>>
 
     <div id="header" role="banner">
         <div class="transparency"></div>
