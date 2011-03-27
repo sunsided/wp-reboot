@@ -235,9 +235,7 @@ blockquote {
 
       height: 14px;
       background: #68bdda;
-	  text-decoration: none;
-	  font-weight: bold;
-	  
+	  text-decoration: none;  
 
       border-bottom: 8px solid /*#F9F9F9*/ #68bdda;
     }
