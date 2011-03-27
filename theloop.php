@@ -128,7 +128,7 @@
 		  
 			<!-- vcard des Authors -->
 			<address class="author vcard">
-				<?php if(!empty($authordata->user_firstname) && !empty($authordata->user_lastname): ?>
+				<?php if(!empty($authordata->user_firstname) && !empty($authordata->user_lastname)): ?>
 				<span class="fn n value-title" title="<?php echo $authordata->user_firstname ?> <?php echo $authordata->user_lastname ?>">
 				<?php else: ?>
 				<span class="fn<?php if(empty($authordata->nickname)): ?> nickname<?php endif; ?> value-title" title="<?php echo $authordata->user_nicename ?>">
