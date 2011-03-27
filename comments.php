@@ -6,18 +6,6 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 		die ('Please do not load this page directly. Thanks!');
 }
 
-global $dwoo, $dwooParams, $post, $user_identity;
-$localDwooParams = $dwooParams;
-
-// Post lokal neu erzeugen
-$the_post = $localDwooParams["posts"][0];
-
-// Kommentare auflisten
-$the_post['has_comments'] = have_comments();
-
-// Post einreihen
-$localDwooParams['post'] = $the_post;
-
 // build navigation links
 if(function_exists('get_PaginationFuComments'))
 {
@@ -37,12 +25,6 @@ else
 ob_start();
 show_subscription_checkbox();
 $subscriptionCheckbox = ob_get_clean();
-
-// Aktueller Kommentator
-$localDwooParams['comment_author'] = $comment_author;
-$localDwooParams['comment_author_email'] = $comment_author_email;
-$localDwooParams['comment_author_url'] = $comment_author_url;
-$localDwooParams['req'] = $req;
 
 // Titel generieren
 $comments_form_title = __("%comments% auf &#8222;%title%&#8220;", 'reboot');
@@ -143,7 +125,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 					<input
 						onFocus="javascript:rebootFocus('author-label');"
 						onBlur="javascript:rebootUnfocus('author-label');"
-						tabindex="2" class="author{if $req} required{/if}" type="text" name="author" id="author" value="{esc_attr $comment_author}" size="22" tabindex="1" aria-required="true" />
+						tabindex="2" class="author{if $req} required{/if}" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author) ?>" size="22" tabindex="1" aria-required="true" />
 					</div>
 
 					<div class="email-row new-comment-author-info">
@@ -151,7 +133,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 					<input
 						onFocus="javascript:rebootFocus('email-label');"
 						onBlur="javascript:rebootUnfocus('email-label');"
-						tabindex="3" class="email required" type="text" name="email" id="email" value="{esc_attr $comment_author_email}" size="22" tabindex="2" aria-required="true" />
+						tabindex="3" class="email required" type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email) ?>" size="22" tabindex="2" aria-required="true" />
 					</div>
 
 					<div class="url-row new-comment-author-info">
@@ -159,7 +141,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 					<input
 						onFocus="javascript:rebootFocus('url-label');"
 						onBlur="javascript:rebootUnfocus('url-label');"
-						tabindex="4" class="url" type="text" name="url" id="url" value="{esc_attr $comment_author_url}" size="22" tabindex="3" />
+						tabindex="4" class="url" type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url) ?>" size="22" tabindex="3" />
 					</div>
 
 				<?php endif; /* user not logged in */ ?>
