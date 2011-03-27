@@ -84,7 +84,7 @@ blockquote {
   #page #header {
     width: 635px;
     overflow: hidden;
-    height: 75px;
+    height: 85px;
     /*background: black url(images/backdrop-4.jpg);*/
     /*background-position: 0px -30px;*/
     background-position: 0px -60px;
@@ -153,7 +153,7 @@ blockquote {
     position: absolute;
     width: 670px;
     height: 25px;
-    top: 111px;
+    top: 121px;
     left: 10px;
     margin: none;
 
@@ -243,16 +243,18 @@ blockquote {
 
 
   #page .separate {
-    width: 670px;
+    width: 600px;
     height: 8px;
     background: #EFEFEF;
     clear: both;
-    margin: 0 0 50px -35px;
+    /*margin: 0 0 50px -35px;*/
+	margin: 0 0 50px 0;
   }
 
   #page .separate.lighter {
     background: #FAFAFA;
-    margin: 0 0 10px -35px;
+    /*margin: 0 0 10px -35px;*/
+	margin: 0 0 10px 0;
   }
 
 	#content {
