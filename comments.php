@@ -80,7 +80,7 @@ $localDwooParams['req'] = $req;
 	<?php if($post->comment_count > 0): ?>
     	<h3 id="comments">
 		<?php 
-		$title = __("%comments% auf &#8222;%title%&#8220;", 'reboot');|
+		$title = __("%comments% auf &#8222;%title%&#8220;", 'reboot');
 		$title = str_replace('%comments%', reboot_comments_count_text(), $title);
 		$title = str_replace('%title%', get_the_title(), $title);
 		echo $title;
