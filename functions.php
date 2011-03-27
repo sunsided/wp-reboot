@@ -49,20 +49,10 @@ if (function_exists("register_sidebar")) {
 // MIME abrocken
 if($_SERVER["SERVER_ADDR"] != "127.0.0.1") PerformAwesomeMimeFoo();
 
-// dwoo laden
-include(TEMPLATEPATH.'/dwoo/dwooAutoload.php');
-$dwoo = new Dwoo();
-$dwooLoader = $dwoo->getLoader();
-$dwooLoader->addDirectory(TEMPLATEPATH.'/tpl_plugs');
-$dwooParams = array();
-
 // Standardparameter setzen
-$dwooParams['user_logged_in']   = is_user_logged_in();
-$dwooParams['user_identity']    = $user_identity;
-$dwooParams["user_is_admin"] = current_user_can('level_10');
-
-// Dwoo-Templatepfad registrieren
-define('TPL_PATH', TEMPLATEPATH.'/tpl');
+$GLOBALS['user_logged_in']   = is_user_logged_in();
+$GLOBALS['user_identity']    = $user_identity;
+$GLOBALS["user_is_admin"] = current_user_can('level_10');
 
 // Allgemeine Funktionen
 
