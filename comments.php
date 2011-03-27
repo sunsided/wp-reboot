@@ -85,7 +85,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 
     <?php if(comments_open()): ?>
 
-        <div id="respond" class="{if $user_logged_in}user-logged-in{else}anon-user{/if}">
+        <div id="respond" class="<?php if(is_user_logged_in()): ?>user-logged-in<?php else: ?>anon-user<?php endif; ?>">
 
         <h3><?php echo reboot_comments_form_title(); ?></h3>
 
