@@ -1,28 +1,43 @@
 <?php
 
-  $dwooParams['page_classes'] = 'datearchive';
+  $GLOBALS["page_classes"] = 'datearchive';
 
   get_header();
 
   if (is_year ()) {
-    $dwooParams['archive']['searchterm'] = get_the_date(__('Y'));
+    $searchterm = get_the_date(__('Y'));
   }
   elseif (is_month()) {
-      $dwooParams['archive']['searchterm'] = get_the_date(__('F Y'));
+      $searchterm = get_the_date(__('F Y'));
   }
   elseif (is_day()) {
-      $dwooParams['archive']['searchterm'] = get_the_date(__('j. F  Y'));
+      $searchterm = get_the_date(__('j. F  Y'));
   }
   elseif (is_time()) {
-      $dwooParams['archive']['searchterm'] = get_the_time(__('j. F Y, H:i \U\h\r'));
+      $searchterm = get_the_time(__('j. F Y, H:i \U\h\r'));
   }
 
-  $dwooParams['archive']['is_year'] = is_year();
-  $dwooParams['archive']['is_month'] = is_month();
-  $dwooParams['archive']['is_day'] = is_day();
-  $dwooParams['archive']['is_time'] = is_time();
-
-  $dwoo->output(TPL_PATH.'/date.tpl', $dwooParams);
+?>
+  
+<div id="searchresult_header" class="searchresult_header">
+<h2 class="searchresult_header">Ergebnisse der 
+    <?php if(is_year()): ?>Jahres-<?php elseif(is_month()): ?>Monats-<?php elseif(is_day()): ?>Tages-<?php elseif(is_time()): ?>Zeit-<?php endif; ?>Archivsuche</h2>
+<p><?php if(is_year()): ?>
+    Du hast den Blog nach dem Jahr <strong><?php echo $searchterm ?></strong> durchsucht.
+    <?php elseif(is_month()): ?>
+    Du hast den Blog nach dem Monat <strong><?php echo $searchterm ?></strong> durchsucht.
+    <?php elseif(is_day()): ?>
+    Du hast den Blog nach dem <strong><?php echo $searchterm ?></strong> durchsucht.
+    <?php elseif(is_time()): ?>
+    Du hast den Blog nach der Uhrzeit <strong><?php echo $searchterm ?></strong> durchsucht.
+    Respekt dafür.
+    <?php endif; ?>
+    Hier ist, was sich finden ließ.</p>
+</div>
+<div class="separate"></div>
+  
+  <?php
+  
   include(TEMPLATEPATH.'/theloop.php');
 
   get_footer();
