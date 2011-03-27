@@ -270,7 +270,7 @@ blockquote {
       #page .post h3,
       #page .posts h3{
         color: #666; /* #036d91; */
-        text-shadow: 1px 1px #EEEEFF;
+        /*text-shadow: 1px 1px #EEEEFF;*/
         margin: 0 0 14px 0;
         font-weight: 700;
         line-height: 18pt;
