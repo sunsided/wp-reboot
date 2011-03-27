@@ -128,19 +128,20 @@
 		  
 			<!-- vcard des Authors -->
 			<address class="author vcard">
-				{if $post.author.firstname && $post.author.lastname}
-				<span class="fn n value-title" title="{$post.author.firstname} {$post.author.lastname}">
-				{else}
-				<span class="fn{if !$post.author.nickname} nickname{/if} value-title" title="{$post.author.nicename}">
-				{/if}
+				<?php if(!empty($authordata->user_firstname) && !empty($authordata->user_lastname): ?>
+				<span class="fn n value-title" title="<?php echo $authordata->user_firstname ?> <?php echo $authordata->user_lastname ?>">
+				<?php else: ?>
+				<span class="fn<?php if(empty($authordata->nickname)): ?> nickname<?php endif; ?> value-title" title="<?php echo $authordata->user_nicename ?>">
+				<?php endif; ?>
 			
-				{$post.pub_author}
-				{if $post.author.nickname}
-					<span class="nickname value-title" title="{$post.author.nickname}"></span>
-				{/if}
+				<?php get_the_author(); ?>
+				<?php if(!empty($authordata->nickname): ?>
+					<span class="nickname value-title" title="<?php echo $authordata->nickname ?>"></span>
+				<?php endif ?>
 				{if $post.author.url}
-					<a class="url" href="{$post.author.url}"></a>
-				{/if}
+				<?php if(!empty($authordata->user_url)): ?>
+					<a class="url" href="<?php echo $authordata->user_url ?>"></a>
+				<?php endif ?>
 				</span>
 			</address>
 		  
