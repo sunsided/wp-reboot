@@ -29,8 +29,6 @@ $localDwooParams['post'] = $the_post;
 if(function_exists('get_PaginationFuComments'))
 {
     $pagination = get_PaginationFuComments();
-    $localDwooParams['has_comments_pagination'] = !empty($pagination);
-    $localDwooParams['comments_pagination'] = $pagination;
 }
 else
 {
@@ -40,11 +38,6 @@ else
     ob_start();
     next_comments_link(__('Newer Comments �', 'reboot'));
     $newer_comments_link = ob_get_clean();
-
-    $localDwooParams['has_older_comments_link'] = !empty($older_comments_link);
-    $localDwooParams['has_newer_comments_link'] = !empty($newer_comments_link);
-    $localDwooParams['older_comments_link'] = $older_comments_link;
-    $localDwooParams['newer_comments_link'] = $newer_comments_link;
 }
 
 // subscription foo
@@ -87,13 +80,29 @@ $localDwooParams['req'] = $req;
 		?>
 		</h3>
 
-        {include 'comments_navigation.tpl'}
+		<!-- obere Kommentar-Pagination -->
+		<?php if(!empty(!empty($pagination)): ?>
+            <?php echo $pagination ?>
+		<?php elseif(!empty($older_comments_link) || !empty($newer_comments_link)): ?>
+    	<div class="navigation comment-navigation" role="navigation">
+			<?php if(!empty($older_comments_link)): ?><div class="alignleft previouscomments"><?php echo $older_comments_link; ?></div><?php endif; ?>
+			<?php if(!empty($newer_comments_link)): ?><div class="alignright nextcomments"><?php echo $newer_comments_link; ?></div><?php endif; ?>
+    	</div>
+        <?php endif; ?>
 
     	<ol class="commentlist">
     	{$post.comment_list}
     	</ol>
 
-        {include 'comments_navigation.tpl'}
+		<!-- untere Kommentar-Pagination -->
+		<?php if(!empty(!empty($pagination)): ?>
+            <?php echo $pagination ?>
+		<?php elseif(!empty($older_comments_link) || !empty($newer_comments_link)): ?>
+    	<div class="navigation comment-navigation" role="navigation">
+			<?php if(!empty($older_comments_link)): ?><div class="alignleft previouscomments"><?php echo $older_comments_link; ?></div><?php endif; ?>
+			<?php if(!empty($newer_comments_link)): ?><div class="alignright nextcomments"><?php echo $newer_comments_link; ?></div><?php endif; ?>
+    	</div>
+        <?php endif; ?>
 
      {else}
 	<?php else: /* --> keine Kommentare */ ?>
