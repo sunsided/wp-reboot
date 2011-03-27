@@ -128,6 +128,7 @@
 		  
 			<!-- vcard des Authors -->
 			<address class="author vcard">
+				
 				<?php if(!empty($authordata->user_firstname) && !empty($authordata->user_lastname)): ?>
 				<span class="fn n value-title" title="<?php echo $authordata->user_firstname ?> <?php echo $authordata->user_lastname ?>">
 				<?php else: ?>
@@ -135,10 +136,11 @@
 				<?php endif; ?>
 			
 				<?php get_the_author(); ?>
+
 				<?php if(!empty($authordata->nickname)): ?>
 					<span class="nickname value-title" title="<?php echo $authordata->nickname ?>"></span>
 				<?php endif ?>
-				{if $post.author.url}
+
 				<?php if(!empty($authordata->user_url)): ?>
 					<a class="url" href="<?php echo $authordata->user_url ?>"></a>
 				<?php endif ?>
@@ -146,7 +148,7 @@
 			</address>
 		  
 		  &#183; <span class="commentlink"><?php echo reboot_comments_link(); ?></span>
-          {if $user_is_admin}~ Post-ID <strong><?php the_ID(); ?></strong>{/if}
+		  <?php if(current_user_can('level_10')): ?>~ Post-ID <strong><?php the_ID(); ?></strong><?php endif; ?>
 		  <?php edit_post_link(__('bearbeiten', "reboot"), '~ ', '', $post->ID) ?>
         </div>
 

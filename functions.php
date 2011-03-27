@@ -57,9 +57,9 @@ $dwooLoader->addDirectory(TEMPLATEPATH.'/tpl_plugs');
 $dwooParams = array();
 
 // Standardparameter setzen
-$dwooParams['user_logged_in']   = is_user_logged_in();
-$dwooParams['user_identity']    = $user_identity;
-$dwooParams["user_is_admin"] = current_user_can('level_10');
+$GLOBALS['user_logged_in']   = is_user_logged_in();
+$GLOBALS['user_identity']    = $user_identity;
+$GLOBALS["user_is_admin"] = current_user_can('level_10');
 
 // Dwoo-Templatepfad registrieren
 define('TPL_PATH', TEMPLATEPATH.'/tpl');
