@@ -641,6 +641,10 @@ blockquote {
       background: url("images/star.gif") no-repeat scroll left center transparent;
       padding-left: 12px;
   }
+  
+  ol.commentlist li.bypostauthor div.comment-author li {
+      background: none;
+  }  
 
   ol.commentlist li div.comment-author cite {
       font-weight: bold;
