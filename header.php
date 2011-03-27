@@ -3,37 +3,37 @@
 global $dwoo, $dwooParams;
 
 // Links auf die Unterdomains
-$dwooParams['urltopersonal']    = get_blog_details(BLOG_CATEGORY)->siteurl;
-$dwooParams['urltophoto']       = get_blog_details(PHOTO_CATEGORY)->siteurl;
-$dwooParams['urltocode']        = get_blog_details(DEV_CATEGORY)->siteurl;
+$GLOBALS['urltopersonal']    = get_blog_details(BLOG_CATEGORY)->siteurl;
+$GLOBALS['urltophoto']       = get_blog_details(PHOTO_CATEGORY)->siteurl;
+$GLOBALS['urltocode']        = get_blog_details(DEV_CATEGORY)->siteurl;
 
 // Titel
-$dwooParams['titleforpersonal']    = get_blog_details(BLOG_CATEGORY)->blogname;
-$dwooParams['titleforphoto']       = get_blog_details(PHOTO_CATEGORY)->blogname;
-$dwooParams['titleforcode']        = get_blog_details(DEV_CATEGORY)->blogname;
+$GLOBALS['titleforpersonal']    = get_blog_details(BLOG_CATEGORY)->blogname;
+$GLOBALS['titleforphoto']       = get_blog_details(PHOTO_CATEGORY)->blogname;
+$GLOBALS['titleforcode']        = get_blog_details(DEV_CATEGORY)->blogname;
 
 if(CURRENT_BLOG == BLOG_CATEGORY)
 {
-    $dwooParams['current_subdomain'] = 'blog';
-    $dwooParams['favicon'] = 'favicon.ico';
-    $dwooParams['css_background'] = 'backdrop-7.jpg';
-    $dwooParams['css_background_pos'] = '0px 0px';
+    $GLOBALS['current_subdomain'] = 'blog';
+    $GLOBALS['favicon'] = 'favicon.ico';
+    $GLOBALS['css_background'] = 'backdrop-7.jpg';
+    $GLOBALS['css_background_pos'] = '0px 0px';
 }
 elseif(CURRENT_BLOG == PHOTO_CATEGORY)
 {
-    $dwooParams['current_subdomain'] = 'photo';
-    $dwooParams['favicon'] = 'favicon-photo.ico';
-    $dwooParams['css_background'] = 'backdrop-4.jpg';
-    $dwooParams['css_background_pos'] = '0px -60px';
+    $GLOBALS['current_subdomain'] = 'photo';
+    $GLOBALS['favicon'] = 'favicon-photo.ico';
+    $GLOBALS['css_background'] = 'backdrop-4.jpg';
+    $GLOBALS['css_background_pos'] = '0px -60px';
 }
 elseif(CURRENT_BLOG == DEV_CATEGORY)
 {
-    $dwooParams['current_subdomain'] = 'dev';
-    $dwooParams['favicon'] = 'favicon-code.ico';
-    $dwooParams['css_background'] = 'backdrop-8.jpg';
-    $dwooParams['css_background_pos'] = '0px -60px';
+    $GLOBALS['current_subdomain'] = 'dev';
+    $GLOBALS['favicon'] = 'favicon-code.ico';
+    $GLOBALS['css_background'] = 'backdrop-8.jpg';
+    $GLOBALS['css_background_pos'] = '0px -60px';
 }
-else $dwooParams['current_subdomain'] = 'blog';
+else $GLOBALS['current_subdomain'] = 'blog';
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -74,9 +74,9 @@ else $dwooParams['current_subdomain'] = 'blog';
         <div class="description"><?php bloginfo("description") ?></div>
 
         <div id="mainnavigation" class="menubar" role="navigation">
-          <a class="mainnavlink{if $current_subdomain == 'blog'} currenttopic{/if}" id="navtopersonal" rel="me bookmark" href="{$urltopersonal}" title="{$titleforpersonal}"><div>Persönliches</div></a>
-          <a class="mainnavlink{if $current_subdomain == 'photo'} currenttopic{/if}" id="navtophoto" rel="me bookmark" href="{$urltophoto}" title="{$titleforphoto}"><div>Fotografie</div></a>
-          <a class="mainnavlink{if $current_subdomain == 'dev'} currenttopic{/if}" id="navtocode" rel="me bookmark" href="{$urltocode}" title="{$titleforcode}"><div>Programmierung</div></a>
+          <a class="mainnavlink<?php if($GLOBALS['page_classes'] == 'blog'): ?>} currenttopic<?php endif; ?>" id="navtopersonal" rel="me bookmark" href="<?php echo $GLOBALS['urltopersonal'] ?>" title="<?php echo $GLOBALS['titleforpersonal']; ?>"><div>Persönliches</div></a>
+          <a class="mainnavlink<?php if($GLOBALS['page_classes'] == 'photo'): ?> currenttopic<?php endif; ?>" id="navtophoto" rel="me bookmark" href="<?php echo $GLOBALS['urltophoto']; ?>" title="<?php echo $GLOBALS['titleforphoto']; ?>"><div>Fotografie</div></a>
+          <a class="mainnavlink<?php if($GLOBALS['page_classes'] == 'dev'): ?> currenttopic<?php endif; ?>" id="navtocode" rel="me bookmark" href="<?php echo $GLOBALS['urltocode']; ?>" title="<?php echo $GLOBALS['titleforcode']; ?>"><div>Programmierung</div></a>
         </div>
     </div>
 
