@@ -169,7 +169,7 @@
 			{/if}
         </div>
 
-        {comments_template}
+        <?php comments_template() ?>
 
       </li>
 
