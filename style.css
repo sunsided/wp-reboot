@@ -676,19 +676,19 @@ blockquote {
   #respond #commentform div.new-comment-author-info,
   #respond #commentform div.button-row
   {
-      max-width: 180px;
+      max-width: 250px;
       overflow: visible;
       height: 50px;
   }
 
   #respond #commentform div.comment-row {
-    max-width: 300px;
+    max-width: 350px;
     height: 210px;
     float: left;
   }
 
   #respond.user-logged-in #commentform div.comment-row {
-      max-width: 490px;
+      max-width: 590px;
       float: none;
   }
 
