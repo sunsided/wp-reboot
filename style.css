@@ -206,10 +206,11 @@ blockquote {
 
       height: 14px;
       /* background: white; */
-	  background: #89ADCF;
+	  background: #68bdda;
       font-weight: 700;
+	  color: white;
 
-      border-bottom: 8px solid white;
+      border-bottom: 8px solid #68bdda;
     }
 
     #page #mainnavigation .mainnavlink.currenttopic:hover {
