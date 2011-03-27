@@ -93,7 +93,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
         	<small><?php echo cancel_comment_reply_link(); ?></small>
         </div>
 
-		<?php if(get_option('comment_registration') && !is_user_logged_in())): ?>
+		<?php if(get_option('comment_registration') && !is_user_logged_in()): ?>
             <p class="comment-login-needed"><?php echo sprintf(__('Du musst <a href="%s">eingeloggt sein</a>, um einen Kommentar zu posten.', 'reboot'), wp_login_url(get_permalink())); ?></p>
         <?php else: ?>
 
