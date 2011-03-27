@@ -3,10 +3,10 @@
                 <img id="fourohfour" src="<?php bloginfo('stylesheet_directory') ?>/images/einstein404.png" alt="<?php __('Blog durchsucht - Nichts gefunden.', "reboot") ?>" />
 
           <?php if (is_search()): ?>
-                <h2 class="main"><?php _e('Fehler 404: Blog durchsucht - Nichts gefunden.', "reboot") ?></h2>
+                <h3 class="main"><?php _e('Fehler 404: Blog durchsucht - Nichts gefunden.', "reboot") ?></h3>
 				<p>Das war wohl nichts. Wir haben hier wirklich überall nachgesehen, aber <q><?php the_search_query(); ?></q> konnten wir nicht finden.</p>
           <?php else: ?>
-                <h2 class="main"><?php _e('Fehler 404: Unbekannt verzogen - Nichts gefunden.', "reboot") ?></h2>
+                <h3 class="main"><?php _e('Fehler 404: Unbekannt verzogen - Nichts gefunden.', "reboot") ?></h3>
                 <p>Hoppla, da ist wohl etwas schiefgegangen. Wir haben wirklich überall nachgesehen, konnten die Seite aber nicht finden.</p>
           <?php endif; ?>
 
