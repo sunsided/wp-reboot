@@ -10,9 +10,9 @@ define("ENABLE_IMAGE_SCALING",      FALSE && ENABLE_JQUERY);
 define("ENABLE_SMOOTH_SCROLL",      TRUE && ENABLE_JQUERY);
 
 // Kategorie-Fun
-define('BLOG_CATEGORY', 4);
-define('PHOTO_CATEGORY', 2);
-define('DEV_CATEGORY', 3);
+define('BLOG_CATEGORY', 2);
+define('PHOTO_CATEGORY', 3);
+define('DEV_CATEGORY', 4);
 define('CURRENT_BLOG', $GLOBALS['blog_id']);
 
 // Sidebars registrieren
