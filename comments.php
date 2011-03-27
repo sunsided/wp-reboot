@@ -130,7 +130,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 
             {if $subscriptionCheckbox}<div class="subscription-row">{$subscriptionCheckbox}</div>{/if}
             <div class="button-row"><input tabindex="10" name="submit" type="submit" id="submit" tabindex="5" value="{translate 'Kommentar absenden'}" />
-            {comment_id_fields}
+				<?php echo comment_id_fields(); ?>
             </div>
             {$comment_form_action}
 
