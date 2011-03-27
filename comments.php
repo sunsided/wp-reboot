@@ -125,7 +125,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 					<input
 						onFocus="javascript:rebootFocus('author-label');"
 						onBlur="javascript:rebootUnfocus('author-label');"
-						tabindex="2" class="author{if $req} required{/if}" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author) ?>" size="22" tabindex="1" aria-required="true" />
+						tabindex="2" class="author required" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author) ?>" size="22" tabindex="1" aria-required="true" />
 					</div>
 
 					<div class="email-row new-comment-author-info">
