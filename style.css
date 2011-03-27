@@ -206,11 +206,11 @@ blockquote {
 
       height: 14px;
       /* background: white; */
-	  background: #222222;
+	  background: #666666;
       font-weight: 700;
 	  color: white;
 
-      border-bottom: 8px solid #222222;
+      border-bottom: 8px solid #666666;
     }
 
     #page #mainnavigation .mainnavlink.currenttopic:hover {
@@ -220,7 +220,7 @@ blockquote {
     	  -khtml-opacity: 1.0;
     	  opacity: 1.0;
 
-      background: #444444;
+      background: #68bdda /*#888888*/;
       border-bottom: 8px solid white;
 
     }
@@ -234,9 +234,9 @@ blockquote {
     	  opacity: 0.9;
 
       height: 14px;
-      background: #68bdda;
+      background: #238db1;
 
-      border-bottom: 8px solid /*#F9F9F9*/ #68bdda;
+      border-bottom: 8px solid /*#F9F9F9*/ #238db1;
     }
 
 
