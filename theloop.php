@@ -153,8 +153,20 @@
         </div>
 
         <div class="postmetadata" role="contentinfo">
-          {if $post.has_tags}{include 'page_tags.tpl'}{/if}
-          {if $post.has_categories}{include 'page_categories.tpl'}{/if}
+		
+			{if $post.has_tags}
+			<div class="tags" role="navigation">
+				{foreach $post.tag_list tag}<a rel="tag" class="tag tag-{$tag.id} tag-{$tag.slug}{if $tag.count == 1} lonely{/if}" href="{$tag.url}" title="{if $tag.description}{esc_attr $tag.description}"{else}{$tag.title}{/if}">{$tag.name}</a>
+				{/foreach}
+			</div>
+			{/if}
+          
+			{if $post.has_categories}
+			<div class="categories" role="navigation">
+				{foreach $post.category_list category}<a rel="category tag index" class="category category-{$category.id} category-{$category.slug}{if $category.count == 1} lonely{/if}" href="{$category.url}" title="{if $category.description}{esc_attr $category.description}{else}{$category.title}{/if}">{$category.name}</a>
+				{/foreach}
+			</div>
+			{/if}
         </div>
 
         {comments_template}
