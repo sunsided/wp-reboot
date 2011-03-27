@@ -676,7 +676,8 @@ blockquote {
   #respond #commentform div.new-comment-author-info,
   #respond #commentform div.button-row
   {
-      max-width: 250px;
+      max-width: 200px;
+	  width: 200px;
       overflow: visible;
       height: 50px;
   }
@@ -814,10 +815,10 @@ blockquote {
       border-radius: 3px;
         -moz-border-radius: 3px;
         -webkit-border-radius: 3px;
-
+	/*
     box-shadow: rgba(128, 128, 128, 0.1) 2px 2px 20px;
       -moz-box-shadow: rgba(128, 128, 128, 0.1) 2px 2px 20px;
-      -webkit-box-shadow: rgba(128, 128, 128, 0.1) 2px 2px 20px;
+      -webkit-box-shadow: rgba(128, 128, 128, 0.1) 2px 2px 20px;*/
   }
 
   #respond #commentform div:hover input[type="text"],
