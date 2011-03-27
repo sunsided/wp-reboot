@@ -15,13 +15,6 @@ $the_post = $localDwooParams["posts"][0];
 // Kommentare auflisten
 $the_post['has_comments'] = have_comments();
 
-// Kommentarliste generieren
-$args = array(
-    //'reply_text' => __('Antworten', 'reboot')
-    );
-ob_start(); wp_list_comments($args); $comment_list = ob_get_clean();
-$the_post['comment_list'] = $comment_list;
-
 // Post einreihen
 $localDwooParams['post'] = $the_post;
 
@@ -91,7 +84,13 @@ $localDwooParams['req'] = $req;
         <?php endif; ?>
 
     	<ol class="commentlist">
-    	{$post.comment_list}
+    	<?php
+			// Kommentarliste generieren
+			$args = array(
+				//'reply_text' => __('Antworten', 'reboot')
+				);
+			wp_list_comments($args);
+		?>
     	</ol>
 
 		<!-- untere Kommentar-Pagination -->
