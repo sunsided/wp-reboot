@@ -60,6 +60,7 @@ else $GLOBALS['current_subdomain'] = 'blog';
 <link rel="shortcut icon" href="<?php bloginfo("stylesheet_directory") ?>/images/<?php echo $GLOBALS["favicon"]; ?>" />
 
 <link rel="alternate" type="application/rss+xml" title="<?php echo esc_attr(sprintf(__("%s RSS Feed", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("rss2_url"); ?>" />
+<link rel="alternate" type="application/atom+xml" title="<?php echo esc_attr(sprintf(__("%s Atom Feed", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("atom_url"); ?>" />
 
 <?php wp_head(); ?>
 
