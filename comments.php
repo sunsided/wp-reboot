@@ -101,7 +101,6 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
     	</div>
         <?php endif; ?>
 
-     {else}
 	<?php else: /* --> keine Kommentare */ ?>
 	 
 		 <?php if(comments_open()): ?>
@@ -120,7 +119,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
         <h3><?php echo reboot_comments_form_title(); ?></h3>
 
         <div class="cancel-comment-reply">
-        	<small>{cancel_comment_reply_link}</small>
+        	<small><?php echo cancel_comment_reply_link(); ?></small>
         </div>
 
         {if $comment_registration_needed && !$user_logged_in}
