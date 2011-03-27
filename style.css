@@ -220,7 +220,7 @@ blockquote {
     	  -khtml-opacity: 1.0;
     	  opacity: 1.0;
 
-      background: #68bdda /*#888888*/;
+      background: #238db1 /*#888888*/;
       border-bottom: 8px solid white;
 
     }
@@ -234,9 +234,10 @@ blockquote {
     	  opacity: 0.9;
 
       height: 14px;
-      background: #238db1;
+      background: #68bdda;
+	  color: white;
 
-      border-bottom: 8px solid /*#F9F9F9*/ #238db1;
+      border-bottom: 8px solid /*#F9F9F9*/ #68bdda;
     }
 
 
