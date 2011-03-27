@@ -117,13 +117,13 @@
 
   	}
 
-    $dwooParams["posts"] = $posts_tpl;
+    $GLOBALS["posts"] = $posts_tpl;
     $dwoo->output(TPL_PATH.'/theloop.tpl', $dwooParams);
 
 	}
   else
   {
 
-    $dwoo->output(TPL_PATH.'/nothing_found.tpl');
+	include(TEMPLATEPATH . '/nothing_found.php');
 
-	}
+  }
