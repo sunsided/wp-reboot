@@ -106,7 +106,7 @@ blockquote {
 
     #page #header .title {
       float: left ;
-      height: 48px;
+      height: 40px;
 
       position: relative;
       top: -10px;
@@ -115,13 +115,13 @@ blockquote {
 
 
     #page #header .title h1 {
-      font-size: 48px;
+      font-size: 36pt;
       font-weight: 700;
-      letter-spacing: -1px;
+      letter-spacing: -2pt;
       font-family: "Lato", 'Palatino Linotype', Palatino, Baskerville, Georgia, serif;
       float: left;
       /*color: #454545;*/
-      color: black;
+      color: #444444;
       text-decoration: none;
       /*text-shadow: 1px 1px #000;*/
     }
@@ -129,9 +129,11 @@ blockquote {
     #page #header .description {
       clear: both;
 
-      font-size: 12px;
-      line-height: 14px;
+      font-size: 11pt;
+      line-height: 11pt;
       text-align: left;
+	  margin-left: 1pt;
+	  
       color: black;
 
       float: left;
