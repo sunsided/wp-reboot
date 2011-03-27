@@ -332,10 +332,10 @@ blockquote {
       left: -5px;
       position: relative;
       max-width: 100%;
-      /*border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-
+      border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+	  /*
       box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
@@ -352,10 +352,10 @@ blockquote {
       left: -5px;
       position: relative;
       max-width: 100%;
-      /*border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-
+      border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+	  /*
       box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
@@ -374,9 +374,9 @@ blockquote {
     li.post img.borderless {
       border: none;
       padding: none;
-      border-radius: none;
-        -moz-border-radius: none;
-        -webkit-border-radius: none;
+      border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
 
       box-shadow: none;
         -moz-box-shadow: none;
