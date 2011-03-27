@@ -74,7 +74,7 @@ $localDwooParams['req'] = $req;
 <div class="comments">
 
 <?php if(post_password_required()): ?>
-    <p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.', 'reboot');</p>
+    <p class="nocomments"><?php _e('This post is password protected. Enter the password to view comments.', 'reboot'); ?></p>
 <?php else: /* --> not password protected */ ?>
 
 	<?php if($post->comment_count > 0): ?>
