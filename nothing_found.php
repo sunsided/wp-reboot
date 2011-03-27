@@ -1,6 +1,3 @@
-<?php
-	global $blog_id;
-?>
   <ul class="posts <?php if (is_search()) echo "searchfailed"; else echo "fourohfour"; ?>">
 
                 <img id="fourohfour" src="<?php bloginfo('stylesheet_directory') ?>/images/einstein404.png" alt="<?php __('Blog durchsucht - Nichts gefunden.', "reboot") ?>" />
@@ -84,7 +81,7 @@
 
                 // Und zurücksetzen
                 //restore_current_blog();
-				switch_to_blog($blog_id);
+				switch_to_blog($GLOBALS['blog_id']);
             }
 
           ?>
