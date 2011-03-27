@@ -221,7 +221,7 @@ blockquote {
     	  opacity: 1.0;
 
       background: #238db1 /*#888888*/;
-      border-bottom: 8px solid white;
+      border-bottom: 8px solid #238db1;
 
     }
 
@@ -235,7 +235,9 @@ blockquote {
 
       height: 14px;
       background: #68bdda;
-	  color: white;
+	  text-decoration: none;
+	  font-weight: bold;
+	  
 
       border-bottom: 8px solid /*#F9F9F9*/ #68bdda;
     }
