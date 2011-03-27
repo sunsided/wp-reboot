@@ -81,7 +81,7 @@ $localDwooParams['req'] = $req;
 		</h3>
 
 		<!-- obere Kommentar-Pagination -->
-		<?php if(!empty(!empty($pagination)): ?>
+		<?php if(!empty($pagination)): ?>
             <?php echo $pagination ?>
 		<?php elseif(!empty($older_comments_link) || !empty($newer_comments_link)): ?>
     	<div class="navigation comment-navigation" role="navigation">
@@ -95,7 +95,7 @@ $localDwooParams['req'] = $req;
     	</ol>
 
 		<!-- untere Kommentar-Pagination -->
-		<?php if(!empty(!empty($pagination)): ?>
+		<?php if(!empty($pagination)): ?>
             <?php echo $pagination ?>
 		<?php elseif(!empty($older_comments_link) || !empty($newer_comments_link)): ?>
     	<div class="navigation comment-navigation" role="navigation">
