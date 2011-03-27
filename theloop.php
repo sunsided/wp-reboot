@@ -1,5 +1,4 @@
 <?php
-  global $dwooParams;
 
   if (have_posts())
   {
