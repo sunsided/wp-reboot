@@ -283,45 +283,15 @@ blockquote {
         line-height: 18pt;
       }
 
-      #page li.post div.commentlink {
-      }
-
-      #page li.post div.commentlink a,
-      #page li.post div.commentlink span {
-        color: #2e2d2a;
-        font-size: 12px;
-        /*font-weight: bold;*/
-        text-transform: uppercase;
-        line-height: 0px;
-
-        width: 103px;
-        background: #fbff86;
-        border-top-right-radius: 6px;
-        border-bottom-left-radius: 6px;
-          -webkit-border-bottom-right-radius: 6px;
-          -webkit-border-top-right-radius: 6px;
-          -moz-border-radius-bottomright: 6px;
-          -moz-border-radius-topright: 6px;
-        filter:alpha(opacity=54);
-        	-moz-opacity:0.54;
-        	-khtml-opacity: 0.54;
-        	opacity: 0.54;
-        padding: 10px 7px 10px 35px;
-        display: block;
-        position: absolute;
-        top: 0px;
-        right: -167px;
-      }
-    
-    #page li.post div.commentlink span {
+    #page li.post span.commentlink span {
         background: #fbffb6;
     }
       
-    #page li.post div.commentlink span:before {
+    #page li.post span.commentlink span:before {
         content: '(';
     }
     
-    #page li.post div.commentlink span:after {
+    #page li.post span.commentlink span:after {
         content: ')';
     }
 
