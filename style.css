@@ -327,19 +327,19 @@ blockquote {
 
     li.post img,
     .posts img#fourohfour {
-      border: 1px solid silver;
+      /*border: 1px solid silver;*/
       padding: 5px;
       left: -5px;
       position: relative;
       max-width: 100%;
-      border-radius: 5px;
+      /*border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
 
       box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
-
+	*/
     }
 
     .posts img#fourohfour {
@@ -347,18 +347,19 @@ blockquote {
     }
 
     li.post a img {
-      border: 1px solid silver;
+      /*border: 1px solid silver;*/
       padding: 5px;
       left: -5px;
       position: relative;
       max-width: 100%;
-      border-radius: 5px;
+      /*border-radius: 5px;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
 
       box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
+	*/
 
      -moz-transform: rotate(0.5deg);  /* FF3.5+ */
        -o-transform: rotate(0.5deg);  /* Opera 10.5 */
@@ -1041,6 +1042,10 @@ blockquote blockquote:after {
 }
 */
 
+.aligncenter {
+	margin-left: auto;
+	margin-right: auto;
+}
 
 blockquote, q { quotes: '»' '«' '\2039' '\203A' }
 q { quotes: '\2039' '\203A' '„' '“' }
