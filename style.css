@@ -47,6 +47,9 @@ a.tag:hover, a.tag:active, a.category:hover, a.category:active{
   text-decoration: none;
 }
 
+.post h2.title a.title {
+	color: #222222;
+}
 
 p {
   margin: 0 0 14px 0;
@@ -274,10 +277,6 @@ blockquote {
         margin: 0 0 14px 0;
         font-weight: 700;
         line-height: 18pt;
-      }
-
-      #page li.post a.title {
-        /*display: inline;*/
       }
 
       #page li.post div.commentlink {
