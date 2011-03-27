@@ -135,7 +135,7 @@
 				<?php endif; ?>
 			
 				<?php get_the_author(); ?>
-				<?php if(!empty($authordata->nickname): ?>
+				<?php if(!empty($authordata->nickname)): ?>
 					<span class="nickname value-title" title="<?php echo $authordata->nickname ?>"></span>
 				<?php endif ?>
 				{if $post.author.url}
