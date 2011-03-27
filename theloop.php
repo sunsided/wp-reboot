@@ -18,12 +18,6 @@
       $the_post["modified_gmt"] = $post->post_modified_gmt;
 
       $the_post["permalink"] = get_permalink();
-      $the_post["title_attr"] = sprintf(__('Link zu &quot;%s&quot;', 'reboot'), the_title_attribute('echo=0'));
-      $the_post["title"] = reboot_get_the_title();
-      $the_post["content"] = reboot_get_the_content(__('Weiterlesen &raquo;', 'reboot'));
-
-      ob_start(); the_time_ago(__('F jS, Y', 'reboot'));
-      $the_post["pub_time"] = ob_get_clean();
 
       // $the_post["pub_time"] = get_the_time(__('F jS, Y', 'reboot'));
       $the_post["pub_author"] = get_the_author(); //sprintf(__('von %s', 'reboot'), get_the_author());
@@ -113,12 +107,65 @@
       $the_post["comments_open"] = comments_open();
       $the_post["comments_count_text"] = reboot_comments_count_text();
 
-      $posts_tpl[] = $the_post;
+?>
+  <ul class="posts hfeed">
 
-  	}
+      <!--<li class="post entry hentry" id="post-<?php the_ID(); ?>">-->
+      <li id="post-<?php the_ID(); ?>" <?php post_class('entry') ?>>
 
-    $GLOBALS["posts"] = $posts_tpl;
-    $dwoo->output(TPL_PATH.'/theloop.tpl', $dwooParams);
+        <h2 class="title">
+          <a id="p<?php the_ID(); ?>" name="p<?php the_ID(); ?>" class="title entry-title" href="{$post.permalink}" rel="bookmark" title="<?php esc_attr(sprintf(__('Link zu &quot;%s&quot;', 'reboot'), the_title_attribute('echo=0'))) ?>">
+            <span><?php echo reboot_get_the_title(); ?></span>
+          </a>
+        </h2>
+
+        <div class="entry-content">
+		    <?php echo reboot_get_the_content(__('Weiterlesen &raquo;', 'reboot')); ?>
+		</div>
+
+        <div class="info post-info" role="contentinfo">
+			<?php the_time_ago(__('F jS, Y', 'reboot')); ?> <?php __('von', 'reboot'); ?>
+		  
+			<!-- vcard des Authors -->
+			<address class="author vcard">
+				{if $post.author.firstname && $post.author.lastname}
+				<span class="fn n value-title" title="{$post.author.firstname} {$post.author.lastname}">
+				{else}
+				<span class="fn{if !$post.author.nickname} nickname{/if} value-title" title="{$post.author.nicename}">
+				{/if}
+			
+				{$post.pub_author}
+				{if $post.author.nickname}
+					<span class="nickname value-title" title="{$post.author.nickname}"></span>
+				{/if}
+				{if $post.author.url}
+					<a class="url" href="{$post.author.url}"></a>
+				{/if}
+				</span>
+			</address>
+		  
+		  &#183; <span class="commentlink"><?php echo reboot_comments_link(); ?></span>
+          {if $user_is_admin}~ Post-ID <strong><?php the_ID(); ?></strong>{/if}
+		  <?php edit_post_link(__('bearbeiten', "reboot"), '~ ', '', $post->ID) ?>
+        </div>
+
+        <div class="postmetadata" role="contentinfo">
+          {if $post.has_tags}{include 'page_tags.tpl'}{/if}
+          {if $post.has_categories}{include 'page_categories.tpl'}{/if}
+        </div>
+
+        {comments_template}
+
+      </li>
+
+  <?php
+  	} // Ende der Posts-Schleife
+   ?>  
+  </ul>
+<?php
+
+
+
 
 	}
   else
