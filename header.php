@@ -61,6 +61,8 @@ else $GLOBALS['current_subdomain'] = 'blog';
 
 <link rel="alternate" type="application/rss+xml" title="<?php esc_attr(sprintf(__("name", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("rss2_url"); ?>" />
 
+<?php wp_head(); `>
+
 </head>
 
 <body <?php language_attributes(); ?>>
@@ -82,5 +84,5 @@ else $GLOBALS['current_subdomain'] = 'blog';
 
     <div class="separate"></div>
 
-        <div id="header-sidebar" class="sidebar"><ul class="sidebar">{insert_sidebar 'header'}</ul></div>
+        <div id="header-sidebar" class="sidebar"><ul class="sidebar"><?php dynamic_sidebar('header') ?></ul></div>
   	<div id="content" class="narrowcolumn" role="main">
