@@ -25,8 +25,4 @@
 
 {wp_head}
 
-<style type="text/css"><!--
-    #page #header { background: black url({bloginfo 'stylesheet_directory'}/images/{$css_background}) {$css_background_pos}; }
--->
-</style>
 </head>

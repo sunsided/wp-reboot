@@ -10,14 +10,13 @@
           </a>
         </h2>
 
-        <div class="commentlink">{$post.comments_link}</div>
-
         <div class="entry-content">
 		    {$post.content}
 		</div>
 
         <div class="info post-info" role="contentinfo">
           {$post.pub_time} {translate 'von'} {include 'page_pubauthor_short.tpl'}
+		  &#183; <span class="commentlink">{$post.comments_link}</span>
           {if $user_is_admin}~ Post-ID <strong>{$post.id}</strong>{/if}
           {edit_post_link 'bearbeiten', '~ ', '', $post.id}
         </div>

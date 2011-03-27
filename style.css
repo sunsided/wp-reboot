@@ -3,7 +3,7 @@ Theme Name: reboot
 Theme URI: http://defx.de/
 Description: Dwoo-basiertes, schlankes Design für Anwendungszwecke
 Author: Markus Mayer
-Version: 0.9 incubation
+Version: 0.9.1 incubation
 Tags: dwoo
 */
 
@@ -21,7 +21,6 @@ body {
   line-height: 24px;
   font-family: "Lato", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Calibri,Verdana,sans-serif;
   font-weight: 300;
-  background: url(images/bg.jpg);
   -webkit-text-stroke: 1px transparent;
 }
 
@@ -48,6 +47,13 @@ a.tag:hover, a.tag:active, a.category:hover, a.category:active{
   text-decoration: none;
 }
 
+.post h2.title a.title:link {
+	color: #127CA0;
+}
+
+.post h2.title a.title:visited {
+	color: #222222;
+}
 
 p {
   margin: 0 0 14px 0;
@@ -55,7 +61,7 @@ p {
 
 .post p {
    font-family: "Lato", "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Calibri,Verdana,sans-serif;
-   font-size: 15px;
+   font-size: 12pt;
 }
 
 
@@ -66,9 +72,8 @@ blockquote {
 }
 
 #page {
-  width: 500px;
+  width: 600px;
   height: 100%;
-  background: url(images/container-bg.png) repeat-y;
   margin: auto;
   padding: 50px 45px;
   /*padding: 0 45px;
@@ -77,10 +82,10 @@ blockquote {
 }
 
   #page #header {
-    width: 535px;
+    width: 635px;
     overflow: hidden;
     height: 75px;
-    background: black url(images/backdrop-4.jpg);
+    /*background: black url(images/backdrop-4.jpg);*/
     /*background-position: 0px -30px;*/
     background-position: 0px -60px;
     margin: -50px 0 0 -35px;
@@ -108,7 +113,7 @@ blockquote {
 
     #page #header .title {
       float: left ;
-      height: 32px;
+      height: 40px;
 
       position: relative;
       top: -10px;
@@ -117,24 +122,26 @@ blockquote {
 
 
     #page #header .title h1 {
-      font-size: 32px;
+      font-size: 36pt;
       font-weight: 700;
-      letter-spacing: -1px;
+      letter-spacing: -2pt;
       font-family: "Lato", 'Palatino Linotype', Palatino, Baskerville, Georgia, serif;
       float: left;
       /*color: #454545;*/
-      color: white;
+      color: #444444;
       text-decoration: none;
-      text-shadow: 1px 1px #000;
+      /*text-shadow: 1px 1px #000;*/
     }
 
     #page #header .description {
       clear: both;
 
-      font-size: 12px;
-      line-height: 14px;
+      font-size: 11pt;
+      line-height: 11pt;
       text-align: left;
-      color: white;
+	  margin-left: 1pt;
+	  
+      color: black;
 
       float: left;
       position: relative;
@@ -144,7 +151,7 @@ blockquote {
 
   #page #mainnavigation {
     position: absolute;
-    width: 570px;
+    width: 670px;
     height: 25px;
     top: 111px;
     left: 10px;
@@ -232,7 +239,7 @@ blockquote {
 
 
   #page .separate {
-    width: 570px;
+    width: 670px;
     height: 8px;
     background: #EFEFEF;
     clear: both;
@@ -257,86 +264,48 @@ blockquote {
       #page #searchresult_header h2,
       #page .posts h2.main,
       #page .posts h2.otherblog {
-        text-shadow: 1px 1px #CCCCDD;
+        /*text-shadow: 1px 1px #CCCCDD;*/
         margin: 0 0 14px 0;
-        font-size: 24px;
-        line-height: 26px;
+        font-size: 18pt;
+        line-height: 20pt;
       }
 
       #page .posts h2.otherblog {
-        font-size: 16px;
+        font-size: 12pt;
       }
 
       #page .post h3,
       #page .posts h3{
         color: #666; /* #036d91; */
-        text-shadow: 1px 1px #EEEEFF;
+        /*text-shadow: 1px 1px #EEEEFF;*/
         margin: 0 0 14px 0;
-        font-weight: bold;
-        line-height: 20px;
+        font-weight: 700;
+        line-height: 18pt;
       }
-
-      #page li.post a.title {
-        /*display: inline;*/
-      }
-
-      #page li.post div.commentlink {
-      }
-
-      #page li.post div.commentlink a,
-      #page li.post div.commentlink span {
-        color: #2e2d2a;
-        font-size: 12px;
-        /*font-weight: bold;*/
-        text-transform: uppercase;
-        line-height: 0px;
-
-        width: 103px;
-        background: #fbff86;
-        border-top-right-radius: 6px;
-        border-bottom-left-radius: 6px;
-          -webkit-border-bottom-right-radius: 6px;
-          -webkit-border-top-right-radius: 6px;
-          -moz-border-radius-bottomright: 6px;
-          -moz-border-radius-topright: 6px;
-        filter:alpha(opacity=54);
-        	-moz-opacity:0.54;
-        	-khtml-opacity: 0.54;
-        	opacity: 0.54;
-        padding: 10px 7px 10px 35px;
-        display: block;
-        position: absolute;
-        top: 0px;
-        right: -167px;
-      }
-    
-    #page li.post div.commentlink span {
-        background: #fbffb6;
-    }
       
-    #page li.post div.commentlink span:before {
+    #page li.post span.commentlink span:before {
         content: '(';
     }
     
-    #page li.post div.commentlink span:after {
+    #page li.post span.commentlink span:after {
         content: ')';
     }
 
     li.post img,
     .posts img#fourohfour {
-      border: 1px solid silver;
+      /*border: 1px solid silver;*/
       padding: 5px;
       left: -5px;
       position: relative;
       max-width: 100%;
-      border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-
+      border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+	  /*
       box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
-
+	*/
     }
 
     .posts img#fourohfour {
@@ -344,18 +313,19 @@ blockquote {
     }
 
     li.post a img {
-      border: 1px solid silver;
+      /*border: 1px solid silver;*/
       padding: 5px;
       left: -5px;
       position: relative;
       max-width: 100%;
-      border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-
+      border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+	  /*
       box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -moz-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
         -webkit-box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 20px;
+	*/
 
      -moz-transform: rotate(0.5deg);  /* FF3.5+ */
        -o-transform: rotate(0.5deg);  /* Opera 10.5 */
@@ -370,9 +340,9 @@ blockquote {
     li.post img.borderless {
       border: none;
       padding: none;
-      border-radius: none;
-        -moz-border-radius: none;
-        -webkit-border-radius: none;
+      border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
 
       box-shadow: none;
         -moz-box-shadow: none;
@@ -1038,6 +1008,11 @@ blockquote blockquote:after {
 }
 */
 
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
 
 blockquote, q { quotes: '»' '«' '\2039' '\203A' }
 q { quotes: '\2039' '\203A' '„' '“' }
