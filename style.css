@@ -1,9 +1,9 @@
 ﻿/*
-Theme Name: reboot (playground)
+Theme Name: reboot
 Theme URI: http://defx.de/
 Description: Dwoo-basiertes, schlankes Design für Anwendungszwecke
 Author: Markus Mayer
-Version: 0.9 incubation
+Version: 0.9.1 incubation
 Tags: dwoo
 */
 
@@ -205,10 +205,12 @@ blockquote {
         */
 
       height: 14px;
-      background: white;
-      font-weight: bold;
+      /* background: white; */
+	  background: #666666;
+      font-weight: 700;
+	  color: white;
 
-      border-bottom: 8px solid white;
+      border-bottom: 8px solid #666666;
     }
 
     #page #mainnavigation .mainnavlink.currenttopic:hover {
@@ -218,8 +220,8 @@ blockquote {
     	  -khtml-opacity: 1.0;
     	  opacity: 1.0;
 
-      background: white;
-      border-bottom: 8px solid white;
+      background: #238db1 /*#888888*/;
+      border-bottom: 8px solid #238db1;
 
     }
 
@@ -232,9 +234,10 @@ blockquote {
     	  opacity: 0.9;
 
       height: 14px;
-      background: white;
+      background: #68bdda;
+	  text-decoration: none;  
 
-      border-bottom: 8px solid /*#238DB1*/ #F9F9F9 /*#B0B0B0*/;
+      border-bottom: 8px solid /*#F9F9F9*/ #68bdda;
     }
 
 

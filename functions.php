@@ -5,7 +5,7 @@ session_start();
 
 define("ENABLE_JQUERY",             TRUE);
 define("ENABLE_FORMVALIDATION",     TRUE && ENABLE_JQUERY);
-define("ENABLE_FANCYBOX",           TRUE && ENABLE_JQUERY);
+define("ENABLE_FANCYBOX",           FALSE && ENABLE_JQUERY);
 define("ENABLE_IMAGE_SCALING",      FALSE && ENABLE_JQUERY);
 define("ENABLE_SMOOTH_SCROLL",      TRUE && ENABLE_JQUERY);
 
