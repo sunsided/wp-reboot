@@ -72,7 +72,7 @@ else $GLOBALS['current_subdomain'] = 'blog';
 
     <div id="header" role="banner">
         <div class="transparency"></div>
-        <div class="title"><a href="<?php echo get_option('home'); ?>/" rel="home"><h1><?php bloginfo("name") ?></h1></a></div>
+        <div class="title"><a href="<?php echo get_option('home'); ?> rel="home"><h1><?php bloginfo("name") ?></h1></a></div>
         <div class="description"><?php bloginfo("description") ?></div>
 
         <div id="mainnavigation" class="menubar" role="navigation">
