@@ -637,12 +637,14 @@ blockquote {
       /* font-style: italic; */
   }
 
-  ol.commentlist li.bypostauthor div.comment-author {
+  ol.commentlist li.bypostauthor div.comment-author,
+  ul.children li.bypostauthor div.comment-author {
       background: url("images/star.gif") no-repeat scroll left center transparent;
       padding-left: 12px;
   }
   
-  ol.commentlist li.bypostauthor div.comment-author li {
+  ol.commentlist li.comment ul.children div.comment-author,
+  li.bypostauthor ul.children div.comment-author {
       background: none;
   }  
 
