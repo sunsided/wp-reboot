@@ -84,6 +84,7 @@ $localDwooParams['req'] = $req;
 		$title = str_replace('%comments%', reboot_comments_count_text(), $title);
 		$title = str_replace('%title%', get_the_title(), $title);
 		echo $title;
+		?>
 		</h3>
 
         {include 'comments_navigation.tpl'}
