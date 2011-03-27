@@ -1,6 +1,6 @@
 <?php
 
-  $dwooParams['page_classes'] = 'fourohfour';
+  $GLOBALS["page_classes"] = 'fourohfour';
 
   get_header();
 

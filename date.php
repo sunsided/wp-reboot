@@ -1,6 +1,6 @@
 <?php
 
-  $dwooParams['page_classes'] = 'datearchive';
+  $GLOBALS["page_classes"] = 'datearchive';
 
   get_header();
 

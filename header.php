@@ -33,8 +33,7 @@ elseif(CURRENT_BLOG == DEV_CATEGORY)
     $dwooParams['css_background'] = 'backdrop-8.jpg';
     $dwooParams['css_background_pos'] = '0px -60px';
 }
-//else $dwooParams['current_subdomain'] = 'blog';
-
+else $dwooParams['current_subdomain'] = 'blog';
 
 
 ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -62,6 +61,26 @@ elseif(CURRENT_BLOG == DEV_CATEGORY)
 
 <link rel="alternate" type="application/rss+xml" title="<?php esc_attr(sprintf(__("name", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("rss2_url"); ?>" />
 
-<?php $dwoo->output(TPL_PATH.'/header_page.tpl', $dwooParams); ?>
-
 </head>
+
+<body <?php language_attributes(); ?>>
+
+  <a id="top" name="top"></a>
+  <div id="page"<?php if(!empty($GLOBALS["page_classes"])): ?> class="<?php echo $GLOBALS["page_classes"]; =>"<?php endif; ?>>
+
+    <div id="header" role="banner">
+        <div class="transparency"></div>
+        <div class="title"><a href="{option 'home'}/" rel="home"><h1><?php bloginfo("name") ?></h1></a></div>
+        <div class="description"><?php bloginfo("description") ?></div>
+
+        <div id="mainnavigation" class="menubar" role="navigation">
+          <a class="mainnavlink{if $current_subdomain == 'blog'} currenttopic{/if}" id="navtopersonal" rel="me bookmark" href="{$urltopersonal}" title="{$titleforpersonal}"><div>Persönliches</div></a>
+          <a class="mainnavlink{if $current_subdomain == 'photo'} currenttopic{/if}" id="navtophoto" rel="me bookmark" href="{$urltophoto}" title="{$titleforphoto}"><div>Fotografie</div></a>
+          <a class="mainnavlink{if $current_subdomain == 'dev'} currenttopic{/if}" id="navtocode" rel="me bookmark" href="{$urltocode}" title="{$titleforcode}"><div>Programmierung</div></a>
+        </div>
+    </div>
+
+    <div class="separate"></div>
+
+        <div id="header-sidebar" class="sidebar"><ul class="sidebar">{insert_sidebar 'header'}</ul></div>
+  	<div id="content" class="narrowcolumn" role="main">

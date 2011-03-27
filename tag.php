@@ -1,6 +1,6 @@
 <?php
 
-  $dwooParams['page_classes'] = 'tagarchive';
+  $GLOBALS["page_classes"] = 'tagarchive';
 
   get_header();
 

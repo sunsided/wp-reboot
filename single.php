@@ -1,7 +1,7 @@
 <?php
 
-  $dwooParams['page_classes'] = 'single';
-  $dwooParams['is_single'] = TRUE;
+  $GLOBALS["page_classes"] = 'single';
+  $GLOBALS["is_single"] = TRUE;
 
   get_header();
 

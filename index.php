@@ -1,6 +1,6 @@
 <?php
 
-  $dwooParams['page_classes'] = 'index';
+  $GLOBALS["page_classes"] = 'index';
 
   get_header();
 

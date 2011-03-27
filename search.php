@@ -1,6 +1,6 @@
 <?php
 
-  $dwooParams['page_classes'] = 'search';
+  $GLOBALS["page_classes"] = 'search';
 
   get_header();
 

@@ -1,6 +1,6 @@
 <?php
 
-  $dwooParams['page_classes'] = 'categoryarchive';
+  $GLOBALS["page_classes"] = 'categoryarchive';
 
   get_header();
 

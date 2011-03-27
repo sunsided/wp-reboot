@@ -1,6 +1,6 @@
 <?php
 
-  $dwooParams['page_classes'] = 'authorarchive';
+  $GLOBALS["page_classes"] = 'authorarchive';
 
   get_header();
 
