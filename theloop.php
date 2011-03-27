@@ -157,7 +157,7 @@
 			<?php if(!empty($posttags)): ?>
 			<div class="tags" role="navigation">
 				<?php foreach($the_post["tag_list"] as $tag): ?>
-					<a rel="tag" class="tag tag-<?php echo $tag["id"]; ?> tag-<?php echo $tag["slug"]; ?><?php if($tag["count"]==1):?> lonely<?php endif; ?>" href="<?php echo $tag["url"] ?>" title="<?php if(!empty($tag["description"])): echo esc_attr($tag["description"]); else: echo $tag["title"] endif; ?>"><?php echo $tag["name"] ?></a>
+					<a rel="tag" class="tag tag-<?php echo $tag["id"]; ?> tag-<?php echo $tag["slug"]; ?><?php if($tag["count"]==1):?> lonely<?php endif; ?>" href="<?php echo $tag["url"] ?>" title="<?php if(!empty($tag["description"])): echo esc_attr($tag["description"]); else: echo $tag["title"]; endif; ?>"><?php echo $tag["name"] ?></a>
 				<?php endforeach; ?>
 			</div>
 			<?php endif; ?>
@@ -165,7 +165,7 @@
 			<?php if(!empty($postcategories)): ?>
 			<div class="categories" role="navigation">
 				<?php foreach($the_post["category_list"] as $category): ?>
-					<a rel="category tag index" class="category category-<?php echo $category["id"]; ?> category-<?php echo $category["slug"]; ?>{if $category.count == 1} lonely{/if}" href="<?php echo $category["url"]; ?>" title="<?php if(!empty($category["description"])): echo esc_attr($category["description"]); else: echo $category["title"] endif; ?>"><?php echo $category["name"]; ?></a>
+					<a rel="category tag index" class="category category-<?php echo $category["id"]; ?> category-<?php echo $category["slug"]; ?>{if $category.count == 1} lonely{/if}" href="<?php echo $category["url"]; ?>" title="<?php if(!empty($category["description"])): echo esc_attr($category["description"]); else: echo $category["title"]; endif; ?>"><?php echo $category["name"]; ?></a>
 				<?php endforeach; ?>
 			</div>
 			<?php endif; ?>
