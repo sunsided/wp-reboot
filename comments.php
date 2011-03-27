@@ -55,6 +55,11 @@ $localDwooParams['comment_author_email'] = $comment_author_email;
 $localDwooParams['comment_author_url'] = $comment_author_url;
 $localDwooParams['req'] = $req;
 
+// Titel generieren
+$comments_form_title = __("%comments% auf &#8222;%title%&#8220;", 'reboot');
+$comments_form_title = str_replace('%comments%', reboot_comments_count_text(), $comments_form_title);
+$comments_form_title = str_replace('%title%', get_the_title(), $comments_form_title);
+
 ?>
 
 <div class="comments">
@@ -64,14 +69,7 @@ $localDwooParams['req'] = $req;
 <?php else: /* --> not password protected */ ?>
 
 	<?php if($post->comment_count > 0): ?>
-    	<h3 id="comments">
-		<?php 
-		$title = __("%comments% auf &#8222;%title%&#8220;", 'reboot');
-		$title = str_replace('%comments%', reboot_comments_count_text(), $title);
-		$title = str_replace('%title%', get_the_title(), $title);
-		echo $title;
-		?>
-		</h3>
+    	<h3 id="comments"><?php echo $comments_form_title; ?></h3>
 
 		<!-- obere Kommentar-Pagination -->
 		<?php if(!empty($pagination)): ?>
@@ -119,7 +117,7 @@ $localDwooParams['req'] = $req;
 
         <div id="respond" class="{if $user_logged_in}user-logged-in{else}anon-user{/if}">
 
-        <h3>{comments_form_title}</h3>
+        <h3><?php reboot_comments_form_title(); ?></h3>
 
         <div class="cancel-comment-reply">
         	<small>{cancel_comment_reply_link}</small>
