@@ -18,8 +18,7 @@
      $GLOBALS['pagination'] = $pagination;
   }
 
-  $dwoo->output(TPL_PATH.'/footer.tpl', $params);
-
+?>
     </div>
 
     <a id="bottom" name="bottom"></a>
