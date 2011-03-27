@@ -255,6 +255,10 @@ blockquote {
     margin: 0 0 10px -35px;
   }
 
+	#content {
+		margin-bottom: 50px;
+	}
+
   #page .posts {
   }
 
