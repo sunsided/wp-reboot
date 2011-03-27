@@ -1024,7 +1024,8 @@ blockquote blockquote:after {
 }
 */
 
-.aligncenter {
+.aligncenter,
+img #fourohfour {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
