@@ -36,7 +36,7 @@ else
 // subscription foo
 ob_start();
 show_subscription_checkbox();
-$localDwooParams['subscriptionCheckbox'] = ob_get_clean();
+$subscriptionCheckbox = ob_get_clean();
 
 // Generelle Meldungen anh�ngen
 $localDwooParams['comment_logged_in_message'] = sprintf(__('Eingeloggt als <a href="%s/wp-admin/profile.php">%s</a>. <a href="%s" title="Aus diesem Accout ausloggen">Ausloggen &raquo;</a>', 'reboot'), get_option('siteurl'), $user_identity, wp_logout_url(get_permalink()));
@@ -122,8 +122,8 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 
             {include 'comments_form_fields.tpl'}
 
-            {if $subscriptionCheckbox}<div class="subscription-row">{$subscriptionCheckbox}</div>{/if}
-            <div class="button-row"><input tabindex="10" name="submit" type="submit" id="submit" tabindex="5" value="{translate 'Kommentar absenden'}" />
+			<?php if(!empty($subscriptionCheckbox)): ?><div class="subscription-row"><?php echo $subscriptionCheckbox ?></div><?php endif; ?>
+            <div class="button-row"><input tabindex="10" name="submit" type="submit" id="submit" tabindex="5" value="<?php _e('Kommentar absenden', 'reboot') ?>" />
 				<?php echo comment_id_fields(); ?>
             </div>
             
