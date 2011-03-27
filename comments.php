@@ -45,9 +45,7 @@ $comment_form_action = ob_get_clean();
 $localDwooParams['comment_form_action'] = $comment_form_action;
 
 // Generelle Meldungen anh�ngen
-$localDwooParams['comment_login_message'] = sprintf(__('Du musst <a href="%s">eingeloggt sein</a>, um einen Kommentar zu posten.', 'reboot'), wp_login_url(get_permalink()));
 $localDwooParams['comment_logged_in_message'] = sprintf(__('Eingeloggt als <a href="%s/wp-admin/profile.php">%s</a>. <a href="%s" title="Aus diesem Accout ausloggen">Ausloggen &raquo;</a>', 'reboot'), get_option('siteurl'), $user_identity, wp_logout_url(get_permalink()));
-$localDwooParams['comment_registration_needed'] = get_option('comment_registration');
 
 // Aktueller Kommentator
 $localDwooParams['comment_author'] = $comment_author;
@@ -122,9 +120,9 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
         	<small><?php echo cancel_comment_reply_link(); ?></small>
         </div>
 
-        {if $comment_registration_needed && !$user_logged_in}
-            <p class="comment-login-needed">{$comment_login_message}</p>
-        {else}
+		<?php if(get_option('comment_registration') && !is_user_logged_in())): ?>
+            <p class="comment-login-needed"><?php echo sprintf(__('Du musst <a href="%s">eingeloggt sein</a>, um einen Kommentar zu posten.', 'reboot'), wp_login_url(get_permalink())); ?></p>
+        <?php else: ?>
 
             <form action="{option 'siteurl'}/wp-comments-post.php" method="post" id="commentform">
 
@@ -138,7 +136,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 
             </form>
 
-        {/if}
+        <?php endif; /*Registrierung nötig*/ ?>
 
         </div>
 
