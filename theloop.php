@@ -17,8 +17,6 @@
       $the_post["modified"] = $post->post_modified;
       $the_post["modified_gmt"] = $post->post_modified_gmt;
 
-      $the_post["permalink"] = get_permalink();
-
       // $the_post["pub_time"] = get_the_time(__('F jS, Y', 'reboot'));
       $the_post["pub_author"] = get_the_author(); //sprintf(__('von %s', 'reboot'), get_the_author());
 
@@ -32,6 +30,7 @@
       $the_post["timestamp_mod"] = $the_post["timestamp_pub"];
       if($the_post["timestamp_pub"] != $modified_time) $the_post["timestamp_mod"] = $modified_time;
 
+	/*
       // Author-Informationen
       $the_post["author"] = array();
       $the_post["author"]["nickname"] = $authordata->nickname;       // nick
@@ -41,6 +40,7 @@
       $the_post["author"]["lastname"] = $authordata->user_lastname;
       $the_post["author"]["url"] = $authordata->user_url;
       $the_post["author"]["email"] = $authordata->user_email;
+	*/
 
       // Tags und Kategorien vergleichen
       if(!function_exists("reboot_sort_tc"))
@@ -101,20 +101,25 @@
         usort($the_post["category_list"], 'reboot_sort_tc');
       }
 
+	/*
       // Kommentarfunktionalität
       $the_post["comment_count"] = $post->comment_count;
       $the_post["comments_link"] = reboot_comments_link();
       $the_post["comments_open"] = comments_open();
       $the_post["comments_count_text"] = reboot_comments_count_text();
+	*/
 
 ?>
   <ul class="posts hfeed">
 
-      <!--<li class="post entry hentry" id="post-<?php the_ID(); ?>">-->
       <li id="post-<?php the_ID(); ?>" <?php post_class('entry') ?>>
+		<!-- 
+		published: <?php echo $the_post["timestamp_pub"] ?>
+		last modified: <?php echo $the_post["timestamp_mod"] ?>
+		-->
 
         <h2 class="title">
-          <a id="p<?php the_ID(); ?>" name="p<?php the_ID(); ?>" class="title entry-title" href="{$post.permalink}" rel="bookmark" title="<?php esc_attr(sprintf(__('Link zu &quot;%s&quot;', 'reboot'), the_title_attribute('echo=0'))) ?>">
+          <a id="p<?php the_ID(); ?>" name="p<?php the_ID(); ?>" class="title entry-title" href="<?php echo get_permalink(); ?>" rel="bookmark" title="<?php esc_attr(sprintf(__('Link zu &quot;%s&quot;', 'reboot'), the_title_attribute('echo=0'))) ?>">
             <span><?php echo reboot_get_the_title(); ?></span>
           </a>
         </h2>
