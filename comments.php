@@ -115,7 +115,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 				<textarea
 					onFocus="javascript:rebootFocus('comment-label');"
 					onBlur="javascript:rebootUnfocus('comment-label');"
-					tabindex="1" name="comment" id="comment" class="commenttext required" cols="58" rows="10" tabindex="4" aria-required="true"></textarea>
+					tabindex="1" name="comment" id="comment" class="commenttext required" cols="58" rows="10" tabindex="1" aria-required="true"></textarea>
 				</div>
 
 				<?php if(!is_user_logged_in()): ?>
@@ -125,7 +125,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 					<input
 						onFocus="javascript:rebootFocus('author-label');"
 						onBlur="javascript:rebootUnfocus('author-label');"
-						tabindex="2" class="author required" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author) ?>" size="22" tabindex="1" aria-required="true" />
+						tabindex="2" class="author required" type="text" name="author" id="author" value="<?php echo esc_attr($comment_author) ?>" size="22" tabindex="2" aria-required="true" />
 					</div>
 
 					<div class="email-row new-comment-author-info">
@@ -133,7 +133,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 					<input
 						onFocus="javascript:rebootFocus('email-label');"
 						onBlur="javascript:rebootUnfocus('email-label');"
-						tabindex="3" class="email required" type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email) ?>" size="22" tabindex="2" aria-required="true" />
+						tabindex="3" class="email required" type="text" name="email" id="email" value="<?php echo esc_attr($comment_author_email) ?>" size="22" tabindex="3" aria-required="true" />
 					</div>
 
 					<div class="url-row new-comment-author-info">
@@ -141,7 +141,7 @@ $comments_form_title = str_replace('%title%', get_the_title(), $comments_form_ti
 					<input
 						onFocus="javascript:rebootFocus('url-label');"
 						onBlur="javascript:rebootUnfocus('url-label');"
-						tabindex="4" class="url" type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url) ?>" size="22" tabindex="3" />
+						tabindex="4" class="url" type="text" name="url" id="url" value="<?php echo esc_attr($comment_author_url) ?>" size="22" tabindex="4" />
 					</div>
 
 				<?php endif; /* user not logged in */ ?>
