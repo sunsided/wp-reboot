@@ -91,7 +91,7 @@
           $the_category["title"] = esc_attr($category->name);
           $the_category["slug"] = $category->slug;
           $the_category["id"] = $category->cat_ID;
-          $the_category["description"] = $category->description);
+          $the_category["description"] = $category->description;
           $the_category["count"] = $category->category_count;
           $the_category["url"] = get_category_link($category->cat_ID);
 
