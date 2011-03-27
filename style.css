@@ -637,7 +637,7 @@ blockquote {
       /* font-style: italic; */
   }
 
-  ol.commentlist li.bypostauthor > div.comment-author {
+  ol.commentlist li.bypostauthor > div.comment-body div.comment-author {
       background: url("images/star.gif") no-repeat scroll left center transparent;
       padding-left: 12px;
   }
