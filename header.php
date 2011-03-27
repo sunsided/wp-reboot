@@ -59,7 +59,7 @@ else $GLOBALS['current_subdomain'] = 'blog';
 <link rel="pingback" href="<?php bloginfo("pingback_url"); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo("stylesheet_directory") ?>/images/<?php echo $GLOBALS["favicon"]; ?>" />
 
-<link rel="alternate" type="application/rss+xml" title="<?php esc_attr(sprintf(__("name", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("rss2_url"); ?>" />
+<link rel="alternate" type="application/rss+xml" title="<?php echo esc_attr(sprintf(__("name", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("rss2_url"); ?>" />
 
 <?php wp_head(); ?>
 
