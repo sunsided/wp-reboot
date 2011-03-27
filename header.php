@@ -61,7 +61,7 @@ else $GLOBALS['current_subdomain'] = 'blog';
 
 <link rel="alternate" type="application/rss+xml" title="<?php esc_attr(sprintf(__("name", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("rss2_url"); ?>" />
 
-<?php wp_head(); `>
+<?php wp_head(); ?>
 
 </head>
 
