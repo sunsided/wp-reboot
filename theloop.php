@@ -140,7 +140,7 @@
 				<span class="fn<?php if(empty($authordata->nickname)): ?> nickname<?php endif; ?> value-title" title="<?php echo $authordata->user_nicename ?>">
 				<?php endif; ?>
 			
-				<?php the_author(); ?>
+				<?php /* the_author(); */ the_author_posts_link() ?>
 
 				<?php if(!empty($authordata->nickname)): ?>
 					<span class="nickname value-title" title="<?php echo $authordata->nickname ?>"></span>
