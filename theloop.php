@@ -91,7 +91,7 @@
           $the_category["title"] = esc_attr($category->name);
           $the_category["slug"] = $category->slug;
           $the_category["id"] = $category->cat_ID;
-          $the_category["description"] = $category->description;
+          $the_category["description"] = $category->description);
           $the_category["count"] = $category->category_count;
           $the_category["url"] = get_category_link($category->cat_ID);
 
@@ -154,19 +154,21 @@
 
         <div class="postmetadata" role="contentinfo">
 		
-			{if $post.has_tags}
+			<?php if(!empty($posttags)): ?>
 			<div class="tags" role="navigation">
-				{foreach $post.tag_list tag}<a rel="tag" class="tag tag-{$tag.id} tag-{$tag.slug}{if $tag.count == 1} lonely{/if}" href="{$tag.url}" title="{if $tag.description}{esc_attr $tag.description}"{else}{$tag.title}{/if}">{$tag.name}</a>
-				{/foreach}
+				<?php foreach($the_post["tag_list"] as $tag): ?>
+					<a rel="tag" class="tag tag-<?php echo $tag["id"]; ?> tag-<?php echo $tag["slug"]; ?><?php if($tag["count"]==1):?> lonely<?php endif; ?>" href="<?php echo $tag["url"] ?>" title="<?php if(!empty($tag["description"]): echo esc_attr($tag["description"]); else: echo $tag["title"] endif; ?>"><?php echo $tag["name"] ?></a>
+				<?php endforeach; ?>
 			</div>
-			{/if}
+			<?php endif; ?>
           
-			{if $post.has_categories}
+			<?php if(!empty($postcategories)): ?>
 			<div class="categories" role="navigation">
-				{foreach $post.category_list category}<a rel="category tag index" class="category category-{$category.id} category-{$category.slug}{if $category.count == 1} lonely{/if}" href="{$category.url}" title="{if $category.description}{esc_attr $category.description}{else}{$category.title}{/if}">{$category.name}</a>
-				{/foreach}
+				<?php foreach($postcategories as $category): ?>
+					<a rel="category tag index" class="category category-{$category.id} category-{$category.slug}{if $category.count == 1} lonely{/if}" href="{$category.url}" title="{if $category.description}{esc_attr $category.description}{else}{$category.title}{/if}">{$category.name}</a>
+				<?php endforeach; ?>
 			</div>
-			{/if}
+			<?php endif; ?>
         </div>
 
         <?php comments_template() ?>
