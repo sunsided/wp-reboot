@@ -282,10 +282,6 @@ blockquote {
         font-weight: 700;
         line-height: 18pt;
       }
-
-    #page li.post span.commentlink span {
-        background: #fbffb6;
-    }
       
     #page li.post span.commentlink span:before {
         content: '(';
