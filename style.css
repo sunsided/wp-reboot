@@ -47,7 +47,11 @@ a.tag:hover, a.tag:active, a.category:hover, a.category:active{
   text-decoration: none;
 }
 
-.post h2.title a.title {
+.post h2.title a.title:link {
+	color: #127CA0;
+}
+
+.post h2.title a.title:visited {
 	color: #222222;
 }
 
