@@ -4,7 +4,7 @@
 
           <?php if (is_search()): ?>
                 <h2 class="main"><?php __('Blog durchsucht - Nichts gefunden.', "reboot") ?></h2>
-		<p>Das war wohl nichts. Wir haben hier wirklich überall nachgesehen, aber <q><?php the_search_query(); ?></q> konnten wir nicht finden.</p>
+				<p>Das war wohl nichts. Wir haben hier wirklich überall nachgesehen, aber <q><?php the_search_query(); ?></q> konnten wir nicht finden.</p>
           <?php else: ?>
                 <h2 class="main"><?php __('Unbekannt verzogen - Nichts gefunden.', "reboot") ?></h2>
                 <p>Hoppla, da ist wohl etwas schiefgegangen. Wir haben wirklich überall nachgesehen, konnten die Seite aber nicht finden.</p>
