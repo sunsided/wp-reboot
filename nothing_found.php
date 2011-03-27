@@ -77,10 +77,10 @@
                         echo "</ol>";
                         echo "</div>";
                     }
-					
-					// Und zurücksetzen
-					restore_current_blog();
                 }
+				
+				// Und zurücksetzen
+				restore_current_blog();				
             }
 
           ?>
