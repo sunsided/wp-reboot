@@ -652,8 +652,8 @@ blockquote {
   }
 
   ol.commentlist li div.comment-body p {
-      line-height: 11.5pt;
-	  font-size: 16pt;
+      line-height: 16pt;
+	  font-size: 11.5pt;
       margin: 1em 0;
       position: relative;
       top: -5px;
