@@ -164,8 +164,8 @@
           
 			<?php if(!empty($postcategories)): ?>
 			<div class="categories" role="navigation">
-				<?php foreach($postcategories as $category): ?>
-					<a rel="category tag index" class="category category-{$category.id} category-{$category.slug}{if $category.count == 1} lonely{/if}" href="{$category.url}" title="{if $category.description}{esc_attr $category.description}{else}{$category.title}{/if}">{$category.name}</a>
+				<?php foreach($the_post["category_list"] as $category): ?>
+					<a rel="category tag index" class="category category-<?php echo $category["id"]; ?> category-<?php echo $category["slug"]; ?>{if $category.count == 1} lonely{/if}" href="<?php echo $category["url"]; ?>" title="<?php if(!empty($category["description"]): echo esc_attr($category["description"]); else: echo $category["title"] endif; ?>"><?php echo $category["name"]; ?></a>
 				<?php endforeach; ?>
 			</div>
 			<?php endif; ?>
