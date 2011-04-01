@@ -36,6 +36,14 @@ if (function_exists("register_sidebar")) {
 	'after_title'   => '</h2>' )
         );
 
+    register_sidebar(array(
+	'name'		=> "Footer (mitte)",
+	'id'		=> "footer_center",
+	'before_widget' => '<li id="%1$s" class="widget %2$s">',
+	'before_title'  => '<h2 class="widgettitle">',
+	'after_title'   => '</h2>')
+	);
+
     register_sidebar(array( 
         'name'          => "Footer (rechts)",
         'id'            => "footer_right",
