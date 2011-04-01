@@ -7,7 +7,7 @@ Version: 0.9.1 incubation
 Tags: dwoo
 */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:regular,regularitalic,bold,bolditalic);
+@import url(http://fonts.googleapis.com/css?family=Lato);
 
 body {
     position: relative;
@@ -27,16 +27,6 @@ body {
 a {
   color: #238db1;
   text-decoration: none;
-}
-
-a.more-link {
-  font-size: 75%;
-  text-transform: uppercase;
-  color: #EE7600 !important; /* crimson */
-  font-weight: bold;
-  line-height: 20pt;
-  display: block;
-  margin-top: 10pt;
 }
 
 a:hover, a:active {
@@ -141,22 +131,6 @@ blockquote {
       color: #444444;
       text-decoration: none;
       /*text-shadow: 1px 1px #000;*/
-    }
-
-    .entry-content h1 {
-	font-weight: 700;
-	font-size: 16pt;
-	margin-bottom: 2pt;
-    }
-
-    .entry-content h2 {
-        font-weight: 700;
-	font-size: 14pt;
-    }
-
-    .entry-content h3 {
-        font-size: 12pt;
-        font-weight: 700;
     }
 
     #page #header .description {
@@ -429,12 +403,6 @@ blockquote {
         padding: 0 !important;
     }
 
-    .post code, kbd {
-        font-family: "Lucida Console", "Courier New", Courier, monospace;
-	font-size: 10pt;
-	white-space: pre;
-     }
-
     /*
     li.post pre {
       font-family: "Lucida Console", "Courier New", Courier, monospace;
@@ -465,15 +433,6 @@ blockquote {
       background-color: rgba(240, 240, 240, 0.5);
     }
     */
-
-    pre code {
-	background-color: transparent;
-	}
-
-   code, kbd {
- 	background-color: #eeeeee;
-	color: black;
-   }
 
 
     li.post div.info {
@@ -679,10 +638,6 @@ blockquote {
       color: #333;
       padding-right: 12px;
       margin-right: 2px;
-  }
-
-  em {
-	font-style: italic;
   }
 
   ol.commentlist li.bypostauthor div.comment-author a {
