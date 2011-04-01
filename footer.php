@@ -39,8 +39,13 @@
             <ul class="sidebar">
 			<?php dynamic_sidebar('footer_left') ?>
             </ul>
-
-        </div><div id="footer-right" class="sidebar">
+        </div>
+	<div id="footer-center" class="sidebar">
+		<ul class="sidebar">
+		<?php dynamic_sidebar('footer_center'); ?>
+		</ul>
+	</div>
+	<div id="footer-right" class="sidebar">
             <ul class="sidebar">
             <li>
             <h2 class="widgettitle" style="">Blog durchsuchen</h2>
