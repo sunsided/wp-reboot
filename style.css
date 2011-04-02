@@ -29,6 +29,16 @@ a {
   text-decoration: none;
 }
 
+a.more-link {
+  font-size: 75%;
+  text-transform: uppercase;
+  color: #EE7600 !important; /* crimson */
+  font-weight: bold;
+  line-height: 20pt;
+  display: block;
+  margin-top: 10pt;
+}
+
 a:hover, a:active {
   text-decoration: underline;
   color: #ff3300;
@@ -131,6 +141,22 @@ blockquote {
       color: #444444;
       text-decoration: none;
       /*text-shadow: 1px 1px #000;*/
+    }
+
+    .entry-content h1 {
+	font-weight: 700;
+	font-size: 16pt;
+	margin-bottom: 2pt;
+    }
+
+    .entry-content h2 {
+        font-weight: 700;
+	font-size: 14pt;
+    }
+
+    .entry-content h3 {
+        font-size: 12pt;
+        font-weight: 700;
     }
 
     #page #header .description {
@@ -403,7 +429,7 @@ blockquote {
         padding: 0 !important;
     }
 
-    .post code, kbd {
+    .post code {
         font-family: "Lucida Console", "Courier New", Courier, monospace;
 	font-size: 10pt;
 	white-space: pre;
@@ -439,15 +465,6 @@ blockquote {
       background-color: rgba(240, 240, 240, 0.5);
     }
     */
-
-    pre code {
-	background-color: transparent;
-	}
-
-   code, kbd {
- 	background-color: #eeeeee;
-	color: black;
-   }
 
 
     li.post div.info {
