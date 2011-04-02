@@ -893,8 +893,13 @@ blockquote {
   #footer-left {
       float: left;
       clear: left;
-      width: 300px;
+      width: 200px;
     }
+
+  #footer-center {
+	width: 200px;
+	float: left;
+  } 
 
   #footer-right {
       float: right;

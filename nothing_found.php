@@ -79,8 +79,8 @@
                     }
                 }
 				
-				// Und zurücksetzen
-				restore_current_blog();				
+		// Und zurücksetzen
+		switch_to_blog(CURRENT_BLOG);
             }
 
           ?>
