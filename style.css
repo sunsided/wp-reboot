@@ -429,11 +429,20 @@ blockquote {
         padding: 0 !important;
     }
 
-    .post code {
+    .post code, kbd {
         font-family: "Lucida Console", "Courier New", Courier, monospace;
 	font-size: 10pt;
 	white-space: pre;
      }
+
+    pre code {
+	background-color: transparent;
+	}
+
+    code, kbd {
+ 	background-color: #eeeeee;
+	color: black;
+    }
 
     /*
     li.post pre {
