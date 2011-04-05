@@ -409,13 +409,30 @@ blockquote {
     li.post div.syntaxhighlighter {
       font-size: 13px !important;
       background: url("images/code.png") no-repeat scroll 0 0 #CCCCCC !important;
+	border-right: 1px solid #cccccc;
 
       border-radius: 10px 0px 0px 10px;
         -moz-border-radius: 10px 0px 0px 10px;
         -webkit-border-radius: 10px 0px 0px 10px;
     }
 
-    li.post div.syntaxhighlighter .line .content {
+    	li.post div.syntaxhighlighter .gutter .line {
+		background: url("images/code.png");
+		background: none !important;
+		color: #5c5c5c;
+	}
+
+	li.post div.syntaxhighlighter .code .alt1 {
+		background-color: #eeeeee !important;
+	}
+
+/*
+	li.post div.syntaxhighlighter table {
+	border-right: 1px solid #cccccc !important;
+	}*/
+
+    li.post div.syntaxhighlighter .gutter {
+	padding-left: 8px !important;
         padding-top: 1px !important;
         padding-bottom: 2px !important;
     }
