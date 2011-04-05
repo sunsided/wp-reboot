@@ -437,6 +437,13 @@ blockquote {
         padding-bottom: 2px !important;
     }
 
+	li.post div.syntaxhighlighter .line.highlighted {
+		background: #2386b1 !important;
+	}
+	li.post div.syntaxhighlighter .line.highlighted code {
+		color: white !important;
+	}
+
     li.post div.syntaxhighlighter .bar .toolbar .about {
         visibility: hidden;
         display: none;
