@@ -55,12 +55,23 @@ else $GLOBALS['current_subdomain'] = 'blog';
 
 <link rel="stylesheet" href="<?php bloginfo("stylesheet_directory"); ?>/reset.css" type="text/css" />
 <link rel="stylesheet" href="<?php bloginfo("stylesheet_url"); ?>" type="text/css" media="screen" />
+<link rel="stylesheet" href="<?php bloginfo("stylesheet_url"); ?>" type="text/css" media="print" />
 
 <link rel="pingback" href="<?php bloginfo("pingback_url"); ?>" />
 <link rel="shortcut icon" href="<?php bloginfo("stylesheet_directory") ?>/images/<?php echo $GLOBALS["favicon"]; ?>" />
 
 <link rel="alternate" type="application/rss+xml" title="<?php echo esc_attr(sprintf(__("%s RSS Feed", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("rss2_url"); ?>" />
 <link rel="alternate" type="application/atom+xml" title="<?php echo esc_attr(sprintf(__("%s Atom Feed", 'reboot'), get_bloginfo('name'))); ?>" href="<?php bloginfo("atom_url"); ?>" />
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[latex\\]","\\[/latex\\]"] ],
+      processEscapes: true
+    }
+  });
+</script>
 
 <?php wp_head(); ?>
 
@@ -69,6 +80,7 @@ else $GLOBALS['current_subdomain'] = 'blog';
 <body <?php language_attributes(); ?>>
 
   <a id="top" name="top"></a>
+  <a rel="nofollow" href="http://dev.widemeadows.de/pushover.php"><!-- officer-nuptial --></a>
   <div id="page"<?php if(!empty($GLOBALS["page_classes"])): ?> class="<?php echo $GLOBALS["page_classes"]; ?>"<?php endif; ?>>
 
     <div id="header" role="banner">

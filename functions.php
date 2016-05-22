@@ -228,8 +228,10 @@ function reboot_inject_jquery()
 {   
     if(is_admin()) return;
     
-    $version = "-1.4.2";
-    if($_SERVER["SERVER_ADDR"] != "127.0.0.1") $version .= "_min";
+    #$version = "-1.4.2";
+    #$version = "-1.12.4";
+    $version = "-2.2.4";
+    if($_SERVER["SERVER_ADDR"] != "127.0.0.1") $version .= ".min";
     $script = get_bloginfo("stylesheet_directory").'/js/jquery'.$version.'.js';
     
     wp_deregister_script('jquery');
@@ -364,7 +366,7 @@ function reboot_smooth_scrolling_foo()
 <script type="text/javascript" language="javascript">
 <!--
 jQuery(document).ready(function($){
-    $('a[href*=#]').click(function() {
+    $('a[href*=\\#]').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
         && location.hostname == this.hostname) {
             var $target = $(this.hash);

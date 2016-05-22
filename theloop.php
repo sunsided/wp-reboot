@@ -150,6 +150,10 @@
 				<?php endif ?>
 				</span>
 			</address>
+			<span class="timestamps hidden">
+				<span class="created"><span class="value"><?php echo $the_post["timestamp_pub"]; ?></span></span>
+				<span class="updated"><span class="value"><?php echo $the_post["timestamp_mod"]; ?></span></span>
+			</span>
 		  
 		  &#183; <span class="commentlink"><?php echo reboot_comments_link(); ?></span>
 		  <?php if(current_user_can('level_10')): ?>~ Post-ID <strong><?php the_ID(); ?></strong><?php endif; ?>
@@ -158,6 +162,7 @@
 
         <div class="postmetadata" role="contentinfo">
 		
+			<a rel="nofollow" href="http://dev.widemeadows.de/pushover.php"><div style="height: 0px; width: 0px;"></div></a>
 			<?php if(!empty($posttags)): ?>
 			<div class="tags" role="navigation">
 				<?php foreach($the_post["tag_list"] as $tag): ?>
